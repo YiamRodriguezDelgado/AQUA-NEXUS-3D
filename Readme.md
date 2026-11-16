@@ -1,131 +1,165 @@
-# AQUA·NEXUS 3D
+<div align="center">
 
-### Earth System Trend Exploration and Flood Visualization
+# 🌎 AQUA·NEXUS 3D
 
-**Team:** Astronomicon  
-**Event:** NASA Space Apps Challenge 2026  
-**Challenge:** Be An Earth System Trend Detective!  
-**Study Area:** Uruguay, South America
+### Earth System Trend Exploration & Flood Visualization
+
+**NASA Space Apps Challenge 2026 · Team Astronomicon**  
+**Challenge: Be An Earth System Trend Detective!**
+
+[![Project](https://img.shields.io/badge/Project-AQUA%20NEXUS%203D-00bcd4?style=for-the-badge)](https://github.com/YiamRodriguezDelgado/AQUA-NEXUS-3D)
+![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange?style=for-the-badge)
+![Languages](https://img.shields.io/badge/UI-English%20%7C%20Espa%C3%B1ol-173b60?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-Standard%20Library-3776ab?style=for-the-badge)
+
+**Explore precipitation. Investigate environmental change. Understand flood-related scenarios.**
+
+[Explore the code](https://github.com/YiamRodriguezDelgado/AQUA-NEXUS-3D) · [NASA POWER](https://power.larc.nasa.gov/) · [NASA GIBS](https://gibs.earthdata.nasa.gov/)
+
+</div>
 
 ---
 
-## 1. Project Overview
+## 🌧️ The challenge
 
-AQUA·NEXUS 3D is an interactive Earth observation and environmental visualization prototype designed to explore precipitation patterns, historical flooding events, and potential flood-related risks in Uruguay.
+Flooding can disrupt communities and infrastructure in Uruguay. To understand the environmental conditions associated with these events, people need accessible ways to examine historical precipitation and distinguish observed changes from hypothetical scenarios.
 
-The project combines an interactive 3D-style map, precipitation data exploration, temporal visualizations, and experimental statistical models.
+**Our research question:** How can NASA Earth science data help people explore precipitation variability across locations and time in Uruguay, and provide context for flood-related risk?
 
-Our objective is to make environmental information more accessible and encourage evidence-based analysis of changes in Earth's systems.
+AQUA·NEXUS 3D addresses this question through an interactive exploratory dashboard. **The current prototype does not establish statistically significant long-term trends or validated flood forecasts.** Those are priorities for future research.
 
-## 2. The Problem
+## 🛰️ What AQUA·NEXUS 3D does
 
-Flooding affects communities, infrastructure, and economic activities across Uruguay.
+| Feature | Current implementation | Important distinction |
+|---|---|---|
+| Interactive Uruguay map | 3D-style artistic terrain and selected areas | Not a georeferenced flood-extent map |
+| NASA POWER precipitation | On-demand historical daily `PRECTOTCORR` requests, aggregated by month for Artigas, Salto and Paysandú | Point-based gridded precipitation; requires internet |
+| Temporal exploration | Monthly playback, charts and scenario indicators | Some values are synthetic |
+| Flood visualization | Illustrative red flood areas and estimated area/volume | Not satellite-detected inundation |
+| Experimental projections | Regression-based demonstration for 2026–2027 | Not validated operational forecasts |
+| Historical context | References to SINAE's 2015–2016 flood reports | Displacement counts are not flood-area measurements |
+| Bilingual interface | English / Español | Geographic proper names remain in Spanish |
 
-Understanding precipitation variability and its possible relationship with flooding requires access to historical environmental data, appropriate statistical analysis, and clear visualization tools.
+## 🗺️ Preview
 
-Scientific datasets can be difficult for non-specialists to interpret. AQUA·NEXUS 3D aims to help bridge this gap.
+![AQUA·NEXUS 3D conceptual map of Uruguay](static/mapa_conceptual.png)
 
-## 3. Our Solution
+*Conceptual visualization created for the prototype. This image is artistic and must not be interpreted as a satellite-derived or georeferenced flood map.*
 
-The prototype provides:
+> **Demo suggestion:** Record a short screen capture showing the English-language interface, NASA POWER query, precipitation chart and scenario playback. A local server address such as `127.0.0.1` is **not** publicly accessible to judges.
 
-- An interactive visualization of Uruguay and selected river basins.
-- Monthly precipitation exploration.
-- Access to NASA POWER precipitation information.
-- Historical flood-event references.
-- Illustrative flood scenarios and animated temporal exploration.
-- Experimental regression-based estimates.
-- English and Spanish interface options.
+## 🔬 Data sources and method
 
-Geographic names remain in their original language.
+### NASA POWER — observed precipitation
 
-## 4. NASA Data and Scientific Resources
+The local Python server includes an endpoint (`/api/nasa/historical`) that requests daily NASA POWER `PRECTOTCORR` data for approximate city coordinates and aggregates valid values into monthly totals. Its configured historical interval is **2018–2025**.
 
-**NASA POWER**
+- Artigas: approximately **30.40° S, 56.47° W**
+- Salto: approximately **31.39° S, 57.96° W**
+- Paysandú: approximately **32.32° S, 58.08° W**
 
-NASA's Prediction of Worldwide Energy Resources (POWER) provides meteorological and environmental data accessible through online services.
+These are representative **points**, not precipitation averages for entire river basins. Data are queried on demand and are not embedded in the repository as a verified historical dataset.
 
-AQUA·NEXUS includes functionality to query precipitation information from NASA POWER.
+### NASA GIBS — imagery discovery
 
-**Additional information sources**
+The server contains functionality to discover NASA GIBS WMS precipitation-related layers. **Availability of a layer does not mean that this prototype has extracted or validated flood polygons from satellite imagery.**
 
-The prototype also references historical flood information from Uruguay's National Emergency System (SINAE).
+### Uruguay SINAE — historical context
 
-NASA satellite imagery services are identified as potential resources for future geospatial validation.
+The interface references public reporting about the December 2015–January 2016 floods. Counts of displaced people provide event context; they cannot be treated as measured inundated area.
 
-Data availability and the actual integration status of each source must be distinguished from simulated information.
+### Experimental analysis
 
-## 5. Methodology
+The prototype contains regression and scenario-exploration components. Some historical training examples and future rainfall inputs are synthetic. The current system **does not** demonstrate a validated statistical trend-significance analysis or reliable prediction accuracy. Results must be interpreted as exploratory demonstrations.
 
-Our exploratory workflow consists of:
+## 💻 Requirements
 
-1. Selecting an area of interest in Uruguay.
-2. Exploring precipitation data and temporal patterns.
-3. Visualizing flood-related scenarios.
-4. Examining experimental regression-based estimates.
-5. Comparing the results with available historical information.
+| Item | Requirement |
+|---|---|
+| Operating system | Windows 10/11 recommended for the included launcher |
+| Python | Python 3.10+ recommended; the server uses the Python standard library |
+| Browser | Recent Chrome, Edge or Firefox |
+| Internet | Required for live NASA data and remote imagery requests |
+| Additional Python packages | None required by `server.py` |
 
-The project is intended to evolve toward statistically validated trend detection, including trend magnitude, significance testing, and independent evaluation.
+## 🚀 Install and run
 
-## 6. Current Limitations
+**Option A — GitHub ZIP**
 
-**AQUA·NEXUS 3D is a research and visualization prototype, not an operational flood-warning system.**
+1. Click **Code → Download ZIP** on this repository and extract it.
+2. Install [Python](https://www.python.org/downloads/) if needed. On Windows, enable **Add Python to PATH**.
+3. Open the extracted project directory (the one containing `server.py`).
+4. Double-click **`INICIAR_AQUA_NEXUS.bat`**.
+5. Open **http://127.0.0.1:8711/** in your browser. If the terminal displays a different address, use that address.
 
-Important limitations include:
+**Option B — Git**
 
-- Some precipitation and flood scenarios use synthetic data.
-- The artistic terrain map is not a georeferenced satellite-derived flood map.
-- Simulated flood areas are not verified observations of actual inundation.
-- Regression estimates have not been established as scientifically validated flood forecasts.
-- Automated satellite-based flood classification and complete historical trend significance testing remain future development goals.
+```bash
+ git clone https://github.com/YiamRodriguezDelgado/AQUA-NEXUS-3D.git
+ cd AQUA-NEXUS-3D
+ python server.py
+```
 
-These limitations are explicitly identified to distinguish demonstrated functionality from planned capabilities.
+Then open the local address displayed by the server. The launcher uses port **8711** for v4.1.
 
-## 7. Technology
+**Language:** Use the **EN / ES** selector at the top of the interface. River, city and basin proper names are intentionally preserved.
 
-The prototype uses:
+## 🧭 Suggested demonstration for judges
 
-- Python for the local application server.
-- HTML and CSS for the user interface.
-- JavaScript for interactive visualizations and calculations.
-- NASA POWER for meteorological data access.
+1. Open the dashboard in **English** and introduce the study area: Uruguay.
+2. Identify the conceptual map and explain that red inundation overlays are **illustrative**.
+3. Query NASA POWER historical precipitation for a supported location.
+4. Explain the difference between **observed precipitation** and **synthetic flood scenarios**.
+5. Show the historical-event context and describe the proposed next step: validated trend detection and satellite-derived flood mapping.
 
-## 8. Running the Project
+## ⚠️ Scientific integrity and limitations
 
-1. Download or clone this repository.
-2. Extract the files if downloaded as a ZIP.
-3. Ensure Python is installed.
-4. On Windows, run `INICIAR_AQUA_NEXUS.bat`.
-5. Open the local address displayed by the server.
+- **Not an early-warning service:** Do not use this prototype for emergency decisions.
+- **Not a satellite flood map:** The background is conceptual artwork and the red overlays are simulated.
+- **Not validated forecasting:** Regression outputs are experimental and do not establish forecast skill.
+- **Not yet a completed trend-significance study:** Long-term trends, significance testing, independent validation and uncertainty quantification require additional verified data and analysis.
+- **Observed vs. synthetic:** NASA POWER observations are queried separately from demonstration values.
 
-The application runs locally in a web browser.
+## 🛠️ Technology
 
-## 9. Future Development
+`Python` · `http.server` · `urllib` · `HTML` · `CSS` · `JavaScript` · `NASA POWER API` · `NASA GIBS WMS`
 
-Our planned improvements include:
+The application runs as a local web server and uses a browser-based interface. No external Python package installation is required for the current server.
 
-- Long-term precipitation trend analysis.
-- Statistical significance testing.
-- Satellite-derived flood extent detection.
-- Integration of verified hydrometric observations.
-- Model validation against independent historical events.
-- Georeferenced maps and exposure analysis.
-- Automated scientific reports.
+## 🔭 Roadmap
 
-## 10. Team
+- [ ] Compute precipitation trend magnitude and statistical significance from verified long-term series.
+- [ ] Add georeferenced maps and reproducible spatial analysis.
+- [ ] Compare satellite imagery before and after a documented flood.
+- [ ] Validate inundation estimates against independent observed flood extents.
+- [ ] Add uncertainty intervals and documented model evaluation.
+- [ ] Publish a short demonstration video and reproducible scientific methodology.
 
-**Astronomicon**
+## 👩‍🚀 Team Astronomicon
 
-NASA Space Apps Challenge 2026
+| Member | Role |
+|---|---|
+| **Yiam Oswaldo Rodríguez Delgado** | Team owner |
+| **Francisco Liguori** | Team member |
+| **Francisco Faguaga** | Team member |
+| **Ciro Poy Vazquez** | Team member |
 
-**Project:** AQUA·NEXUS 3D
+**Local event:** Punta del Este, Uruguay  
+**Competition:** NASA Space Apps Challenge 2026  
+**Selected challenge:** Be An Earth System Trend Detective!
 
-**Challenge:** Be An Earth System Trend Detective!
+*Roles beyond team ownership are not specified here; they can be added once confirmed by the team.*
 
-## 11. Acknowledgments
+## 📚 References and acknowledgments
 
-We acknowledge NASA and the NASA POWER project for providing publicly accessible Earth science data, as well as Uruguay's National Emergency System for historical flood information.
+- [NASA POWER](https://power.larc.nasa.gov/) — meteorological and environmental data services.
+- [NASA GIBS](https://gibs.earthdata.nasa.gov/) — Earth imagery services.
+- [Sistema Nacional de Emergencias (SINAE), Uruguay](https://www.gub.uy/sistema-nacional-emergencias/) — historical emergency information.
+- [NASA Space Apps Challenge](https://www.spaceappschallenge.org/) — hackathon and challenge context.
 
-This project was developed with AI assistance for software development, interface design, documentation, and exploratory analysis.
+**AI transparency:** Generative AI assistance was used during prototyping, interface design, coding and documentation. The conceptual terrain artwork is illustrative and must not be represented as measured satellite imagery.
 
-AQUA·NEXUS 3D is an independent hackathon project and is not an official NASA product.
+**Attribution:** AQUA·NEXUS 3D is an independent Astronomicon hackathon prototype and is **not** an official NASA product or an operational flood-warning service.
+
+**License:** No project-wide license has been declared in this README. The team should select and add a `LICENSE` file after checking the licensing of all included assets and code.
+
