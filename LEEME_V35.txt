@@ -1,7 +1,0 @@
-AQUA NEXUS 3D v3.5
-- Se ocultan los controles de subida manual de archivos.
-- Se eliminan las nubes animadas del mapa; las lluvias siguen en los graficos.
-- Zoom inicial 116% con opcion de restablecer.
-- No se ha conectado automaticamente una fuente oficial de superficie inundada.
-- Proyecciones del mapa son demostrativas, NO pronosticos reales.
-- Puerto 8655 para evitar abrir un servidor antiguo.

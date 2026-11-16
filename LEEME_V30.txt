@@ -1,9 +1,0 @@
-AQUA NEXUS 3D v3.0 - PANEL NASA OBSERVADO
-
-1. Ejecuta INICIAR_AQUA_NEXUS.bat. Se abre puerto 8591 (o el siguiente disponible).
-2. En el panel derecho busca Precipitaciones NASA - observaciones historicas.
-3. Elige Artigas, Salto o Paysandu y pulsa Consultar datos NASA 2018-2025. Necesitas internet.
-4. El grafico anual muestra exclusivamente datos devueltos por NASA POWER. Puedes exportar CSV.
-5. Para entrenar el modelo, abre el laboratorio, descarga lluvia e importa un historico mensual VERIFICADO de superficie inundada por zona. Sin ese historico, no se generan pronosticos cientificos.
-
-IMPORTANTE: la simulacion del mapa y proyecciones 2026-2027 permanecen SINTETICAS. No usar para alertas. No hay descarga automatica de niveles de rios uruguayos ni historicos de area inundada.

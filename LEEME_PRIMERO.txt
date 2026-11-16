@@ -1,9 +1,0 @@
-AQUA NEXUS 3D v2.9 SIN CACHE
-1. Cierre ventanas negras anteriores.
-2. Ejecute INICIAR_AQUA_NEXUS.bat.
-3. Se abre una URL nueva, normalmente http://127.0.0.1:8579/ .
-4. Si Chrome muestra una version vieja, presione Ctrl+Shift+R o abra ventana de incognito.
-5. Verifique que el terminal diga v2.9 SIN CACHE.
-No abra manualmente el antiguo puerto 8502.
-
-Predicciones 2026-2027 son escenarios ilustrativos, no alertas oficiales.

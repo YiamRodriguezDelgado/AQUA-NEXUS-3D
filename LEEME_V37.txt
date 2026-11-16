@@ -1,6 +1,0 @@
-AQUA NEXUS v3.7 - Caso historico 2015-2016
-
-Panel nuevo con tres cortes documentados por SINAE, fuentes enlazadas, cifras de desplazados y accesos a consultas NASA.
-IMPORTANTE: No hay deteccion automatica satelital de inundaciones, ni mapas georreferenciados de agua. Los escenarios 2026-2027 siguen siendo sinteticos.
-NASA POWER/GIBS requieren internet y disponibilidad de servicio.
-Inicio: INICIAR_AQUA_NEXUS.bat, puerto 8677.

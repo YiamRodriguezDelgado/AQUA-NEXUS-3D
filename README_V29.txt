@@ -1,1 +1,0 @@
-AQUA NEXUS 3D v2.9: inicia en proyeccion 2026. El periodo 2026-2027 se selecciona tanto debajo del mapa como encima del grafico del panel derecho. Se mantienen los datos sinteticos; NO son pronosticos reales. Cierra el servidor anterior antes de abrir esta version.

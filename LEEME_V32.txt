@@ -1,5 +1,0 @@
-AQUA NEXUS v3.2
-Cierre las consolas anteriores y abra INICIAR_AQUA_NEXUS.bat.
-La nueva version utiliza el puerto 8624. Compruebe que el encabezado diga v3.2.
-El mapa reserva una franja inferior para controles, evitando superposiciones.
-Los escenarios 2026-2027 siguen siendo demostrativos, no pronosticos validados.

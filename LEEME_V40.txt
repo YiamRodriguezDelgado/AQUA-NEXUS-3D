@@ -1,6 +1,0 @@
-AQUA NEXUS 3D v4.0 - Astronomicon
-Puerto: 8700
-Se conservan nombres geograficos originales en espanol.
-Selector EN/ES con estado activo resaltado.
-Meses dinamicos en ingles y version actualizada.
-Resaltado de inundaciones ilustrativas; no representan deteccion satelital.
