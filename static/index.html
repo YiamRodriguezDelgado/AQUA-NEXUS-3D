@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23051e30'/%3E%3Cpath d='M12 44L32 10L52 44Z' fill='%2300d6ef'/%3E%3C/svg%3E">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>
+   AQUA·NEXUS 3D v4.1 | Astronomicon
+  </title>
+<style>
+   :root{--bg:#03121e;--panel:#071e30;--line:#12607b;--cyan:#1feaff;--muted:#91b9ce;--yellow:#ffc95c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#e7f8ff;font-family:Inter,Segoe UI,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}header{height:75px;border-bottom:1px solid #147c9a;display:flex;align-items:center;justify-content:space-between;padding:12px 22px;background:linear-gradient(90deg,#041322,#05273a);gap:15px}h1{margin:0;font-size:28px;letter-spacing:1px}h1 span{color:var(--cyan)}.kicker{font-size:10px;letter-spacing:3px;color:#7dd7ed}nav{display:flex;gap:8px;flex-wrap:wrap}.navbtn,.btn{border:1px solid #16718a;color:#dff9ff;background:#0c3347;border-radius:8px;padding:10px 13px;font-weight:650}.navbtn.active,.btn:hover{background:#0b667d;box-shadow:0 0 15px #00d8ff22}.pill{border:1px solid #b78530;border-radius:25px;padding:10px;color:var(--yellow);font-size:11px;white-space:nowrap}.layout{display:grid;grid-template-columns:255px minmax(450px,1fr) 330px;height:calc(100vh - 145px);min-height:590px}.side{overflow:auto;padding:13px;background:#061b2a}.left{border-right:1px solid #16546c}.right{border-left:1px solid #16546c}.card{border:1px solid #155a74;border-radius:12px;padding:15px;margin-bottom:13px;background:linear-gradient(145deg,#0b2a3e,#061a2a)}.card h3{margin:0 0 13px;font-size:16px}.card p{font-size:13px;line-height:1.55;color:var(--muted)}.tiny{font-size:11px;color:#83b6cd}.badge{color:#49e8fa;font-size:11px;border:1px solid #166a84;border-radius:20px;padding:5px 10px;display:inline-block}.stat{font-size:25px;font-weight:800;color:var(--cyan)}.layer{display:flex;align-items:center;gap:9px;border-bottom:1px solid #143b50;padding:10px 0;font-size:13px}.layer input{accent-color:#22d9ed}.layer label{flex:1;cursor:pointer}.btn{width:100%;margin-top:8px;text-align:left}.btn.selected{border-color:#29e7ff;color:#4af1ff;background:#0c485d}.mapwrap{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#0c3645,#02121f 75%)}.map{position:absolute;inset:0;background-image:url('/static/mapa_conceptual.png');background-size:contain;background-position:center;background-repeat:no-repeat;transition:filter .3s,transform .5s}.map.holo{filter:hue-rotate(55deg) saturate(1.4)}.map.satellite{filter:saturate(.65) contrast(1.1)}.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay path,.overlay circle{pointer-events:stroke}.river{fill:none;stroke:#13efff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px #0af7ff);opacity:.9;cursor:pointer}.river:hover,.river.active{stroke:#fff;stroke-width:7;filter:drop-shadow(0 0 11px #00eeff)}.tributary{stroke-width:2.2;opacity:.6}.flood{fill:#ffb42d;opacity:.26;stroke:#ffb42d;stroke-width:2;filter:drop-shadow(0 0 10px orange)}.rain{fill:#00bcff;opacity:.15;filter:blur(12px)}.basin{fill:#00f2e9;opacity:.13;stroke:#30f7ff;stroke-width:2;stroke-dasharray:6 5}.maphead{position:absolute;top:18px;left:18px;background:#041a2ce8;border:1px solid #1883a0;border-radius:12px;padding:13px;max-width:260px}.maphead b{display:block;margin:5px 0}.maptag{position:absolute;top:18px;right:16px;border:1px solid #1883a0;background:#041a2ce8;padding:13px;border-radius:10px;font-size:12px;max-width:230px}.mapfoot{position:absolute;bottom:14px;left:15px;background:#041a2ce8;border:1px solid #1883a0;border-radius:9px;padding:12px;max-width:290px;font-size:11px;color:#a4d1e1}.mapfoot strong{color:var(--yellow)}.mapcontrols{position:absolute;bottom:15px;right:15px;display:flex;gap:7px}.mapcontrols button{padding:9px;background:#092d40;border:1px solid #14738b;color:white;border-radius:7px}.chart{width:100%;height:145px;background:#061725;border-radius:8px}.chart svg{width:100%;height:100%}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}.metric{background:#041625;border:1px solid #154d64;padding:10px;border-radius:8px}.metric b{color:#28e9fa;font-size:19px;display:block}.metric small{color:#a5c7d6}input[type=range]{width:100%;accent-color:#25d9e9}.controlrow{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-top:10px}footer{height:70px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:9px 15px;background:#031522;border-top:1px solid #12607b}.footerbox{border:1px solid #13546c;border-radius:10px;padding:8px 12px;min-width:0}.footerbox span{display:block;font-size:10px;color:#9fc9d9}.footerbox b{font-size:17px;color:#39e8f6}.status{color:#ffcd6e!important}.legend{display:flex;align-items:center;gap:5px}.gradient{height:7px;width:100%;border-radius:9px;background:linear-gradient(90deg,#1d9d68,#59e96e,#d5eb39,#ff9d24)}.warning{color:#ffcc71!important}.hidden{display:none!important}.timebox{display:flex;gap:6px;align-items:center}.timebox button{border:1px solid #1c7187;border-radius:6px;background:#0b3446;color:#fff;padding:6px}.timebox input{flex:1;min-width:0}.tab{font-size:11px;color:#8fc5d5;letter-spacing:1.6px;margin-bottom:10px}@media(max-width:1150px){.layout{grid-template-columns:220px minmax(350px,1fr) 280px}}@media(max-width:850px){header{height:auto;flex-wrap:wrap}.layout{display:flex;flex-direction:column;height:auto}.side{overflow:visible}.mapwrap{height:570px;order:-1}.right,.left{border:0}footer{height:auto;grid-template-columns:repeat(2,1fr)}}
+  
+#rainLayer{display:none!important} #floodLayer ellipse,#floodLayer path{filter:drop-shadow(0 0 6px rgba(255,0,30,.85))} .mapstage{transform-origin:53% 52%!important}
+
+/* v3.8 historical case study */
+.case-study{background:linear-gradient(145deg,#0c3040,#071d2a);border:1px solid #287d90;border-radius:14px;padding:14px;margin:10px 0;color:#d9f4fa}.case-study h3{color:#fff;margin:0 0 8px}.case-study p{line-height:1.5}.case-controls{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.case-controls button{background:#123f50;color:#d8f6ff;border:1px solid #32788d;border-radius:8px;padding:9px;cursor:pointer;flex:1;min-width:75px}.case-controls button.active{background:#176d86;border-color:#62ddf2}.case-observed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.case-observed>div{background:#092635;border-radius:8px;padding:9px;min-width:0}.case-observed b{font-size:21px;color:#fff;display:block}.case-observed small{color:#acd3df}.case-bar{height:11px;background:#163b48;border-radius:8px;overflow:hidden;margin:8px 0}.case-bar>div{height:100%;background:linear-gradient(90deg,#fa855a,#ed4a52);transition:width .4s}.case-source{font-size:11px;color:#a8d2df}.case-source a{color:#73dff5}.case-note{border-left:3px solid #ffb46b;padding-left:9px;font-size:12px;color:#f3d6b4;margin-top:10px}.case-city{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #1b4555;padding:7px 0;font-size:12px}.case-city span:last-child{color:#b7e6f1;text-align:right}@media(max-width:750px){.case-observed{grid-template-columns:1fr}}
+
+/* v4.1: stronger flood polygons while retaining the underlying geographic labels */
+.floodzone .flood,.floodzone path.flood,.floodzone ellipse.flood{fill:#ff334f!important;fill-opacity:.42!important;stroke:#ff7884!important;stroke-width:2.5!important;filter:drop-shadow(0 0 5px #f03b5e)!important}
+.floodzone:hover .flood{fill-opacity:.58!important;stroke-width:3!important}
+</style>
+<style>
+   /* v1.7: una sola visualización, lectura simplificada */
+:root{--bg:#04121e;--panel:#092238;--cyan:#36e4f5;--yellow:#ffca60}
+header{height:72px}h1{font-size:25px}.layout{grid-template-columns:224px minmax(420px,1fr) 290px;height:calc(100vh - 140px)}
+.side{padding:13px 12px}.card{padding:14px;border-color:#1c5269;background:#092235}.card h3{font-size:15px}.btn{font-size:13px;padding:10px 11px;margin-top:6px}
+.navbtn{padding:9px 12px;font-size:13px}.navbtn.active{background:#0c5068;border-color:#24d6f1}
+.mapwrap{background:radial-gradient(ellipse at center,#0a2c3d,#04111e 85%)}
+.mapstage{position:absolute;inset:0;margin:auto;width:min(100%,calc((100vh - 140px) * 855 / 723));height:auto;aspect-ratio:855/723;max-height:100%;overflow:hidden}
+.map{inset:0;background-size:100% 100%;background-position:center}
+.overlay{inset:0;transform-origin:center center}
+.river{stroke:#19e8ff;stroke-width:3.4;opacity:.74;filter:drop-shadow(0 0 4px #00d9f5)}
+.river.active,.river:hover{stroke:#f5ffff;stroke-width:6;filter:drop-shadow(0 0 10px #06e9ff)}
+.flood{fill:#ff395e;fill-opacity:.55;stroke:#ffe4a1;stroke-width:3;stroke-dasharray:10 5;filter:drop-shadow(0 0 13px #ff1d57);animation:pulseFlood 2.2s ease-in-out infinite}
+.floodcore{fill:#ff7d32;fill-opacity:.33;pointer-events:none}
+@keyframes pulseFlood{50%{fill-opacity:.78;stroke-width:4}}
+.cloudshape{fill:#8b9bb4;fill-opacity:.76;stroke:#dbedff;stroke-width:2.2;filter:drop-shadow(0 0 10px #45caff)}
+.raindrop{stroke:#39d5ff;stroke-width:6;stroke-linecap:round;fill:none;stroke-dasharray:17 13;animation:rainFall .9s linear infinite;filter:drop-shadow(0 0 5px #00cfff)}
+@keyframes rainFall{to{stroke-dashoffset:-30}}
+.storm{pointer-events:none;animation:floatCloud 3.6s ease-in-out infinite alternate}
+@keyframes floatCloud{to{opacity:.72}}
+.basin{fill:#00fff0;fill-opacity:.16;stroke:#a4ffff;stroke-width:3;stroke-dasharray:9 5}
+.maphead,.maptag,.mapfoot{z-index:2;backdrop-filter:blur(9px)}.maphead{max-width:230px}.maptag{max-width:195px}.mapfoot{max-width:225px;bottom:12px}.mapcontrols{z-index:4}
+.layerlegend{position:absolute;z-index:3;left:14px;bottom:168px;background:#061c2bdf;border:1px solid #26768c;padding:10px 13px;border-radius:9px;font-size:11px;color:#d7f5ff;display:grid;gap:6px}
+.layerlegend b{font-size:10px;letter-spacing:1px;color:#9dd4e5}.layerlegend div{display:flex;align-items:center;gap:7px}.swatch{width:13px;height:9px;border-radius:3px;display:inline-block}.riverkey{background:#26ecff}.floodkey{background:#ff4760}.rainkey{background:#69a4ff}
+footer{height:68px}.footerbox{padding:8px}.footerbox b{font-size:15px}
+@media(max-width:1150px){.layout{grid-template-columns:215px minmax(340px,1fr) 275px}.mapstage{width:100%}}
+@media(max-width:850px){.layout{height:auto}.mapwrap{height:620px}.mapstage{height:auto;width:min(100%,730px)}.layerlegend{bottom:130px}header{height:auto}}
+.hydroNames{max-height:165px;overflow:auto;margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}.hydroNames span{font-size:11px;border:1px solid #17677c;background:#062333;border-radius:15px;padding:5px 8px}.sourceLink{color:#3beaff;font-size:13px}.realTag{display:inline-block;border:1px solid #2dbb8b;color:#70eec2;padding:3px 7px;border-radius:10px;font-size:10px;margin-top:5px}.simTag{color:#ffd08c}.card:focus-within{border-color:#24c9e3}button:focus-visible,input:focus-visible{outline:2px solid #fff;outline-offset:2px}.geoView{margin:10px 0;border:1px solid #1b5971;border-radius:9px;overflow:hidden;min-height:80px;background:#061622}.geoView svg{width:100%;display:block}.geoView svg path{fill:#ff5a62;fill-opacity:.48;stroke:#ffe18d;stroke-width:1.5;vector-effect:non-scaling-stroke}.geoView svg path:hover{fill-opacity:.75}
+  </style>
+<style>
+   #departmentsLayer .deptline{fill:none;stroke:#ffeab3;stroke-width:1.7;stroke-dasharray:5 4;opacity:.85;filter:drop-shadow(0 0 3px #001d26)}
+.citymark circle{fill:#fff1b5;stroke:#003f59;stroke-width:2}.citymark text{font-size:13px;font-weight:700;fill:#fff9e4;paint-order:stroke;stroke:#092336;stroke-width:3.8;stroke-linejoin:round}
+.zoneList{display:grid;grid-template-columns:1fr;gap:5px;max-height:175px;overflow:auto;margin:9px 0}.zoneOption{font-size:12px;color:#d7effa;display:flex;gap:7px;align-items:center;padding:5px;border-radius:5px;background:#0a3042}.zoneOption input{accent-color:#ff527c}.zoneActions{display:flex;gap:8px}.zoneActions button{background:#10465b;border:1px solid #267b91;border-radius:6px;padding:7px;color:#e9f9ff;flex:1}
+.flood{fill:#ff356c;fill-opacity:.64;stroke:#ffe26b;stroke-width:2.4}.floodcore{fill:#ffad32;fill-opacity:.5}
+#floodLayer{mix-blend-mode:screen}
+#chart,#floodChart{height:100%;width:100%}
+  </style>
+<style>
+   /* v2.3: dashboard always in view, including short laptop screens */
+.layout{height:calc(100dvh - 145px);min-height:440px}.mapwrap{min-height:440px}
+.liveDashboard{position:absolute;z-index:12;left:12px;top:12px;width:min(365px,calc(100% - 24px));background:rgba(3,16,30,.96);border:1px solid #2de4fa;border-radius:12px;box-shadow:0 10px 35px #000b,0 0 22px #00e8ff33;padding:12px;color:#eaffff}
+.liveTitle{font-size:11px;font-weight:800;letter-spacing:1.4px;display:flex;align-items:center;gap:8px}.liveTitle strong{margin-left:auto;color:#ffe48b}.livePulse{width:9px;height:9px;border-radius:50%;background:#00ffb2;box-shadow:0 0 10px #00ffb2;animation:liveBlink 1.2s infinite}@keyframes liveBlink{50%{opacity:.3}}
+.liveStats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}.liveStats>div{background:#10334b;border:1px solid #195f7c;border-radius:7px;padding:7px}.liveStats small{display:block;color:#9acbdc;font-size:9px}.liveStats b{display:block;color:#53edff;font-size:14px;margin-top:3px}
+#liveGraph{display:block;width:100%;height:105px;background:#061d30;border-radius:6px}.liveKey{display:flex;justify-content:space-between;gap:7px;color:#a8d4e6;font-size:10px;margin-top:7px}.liveKey span:nth-child(1){color:#35dfff}.liveKey span:nth-child(2){color:#ff6e9e}
+.mapPlayback{position:absolute;z-index:13;left:50%;bottom:18px;transform:translateX(-50%);width:min(560px,calc(100% - 32px));display:flex;align-items:center;gap:10px;background:#031b2ff5;border:1px solid #2cc7e8;padding:10px;border-radius:12px;box-shadow:0 6px 25px #0009}.mapPlayback button{white-space:nowrap;background:#0b657e;color:white;border:1px solid #2de4fa;border-radius:7px;padding:8px;font-size:12px}.mapPlayback input{flex:1;min-width:45px}.mapPlayback span{white-space:nowrap;font-size:11px;color:#ffe7a4}
+/* Simulated inundation needs to be visually distinguishable from cyan rivers */
+#floodLayer .flood{fill:#ff174f!important;fill-opacity:.85!important;stroke:#fff2a0!important;stroke-width:5!important;filter:drop-shadow(0 0 17px #ff174f)!important}
+#floodLayer .floodcore{fill:#ffbb20!important;fill-opacity:.7!important}
+#departmentsLayer .deptline{stroke:#ffffff!important;stroke-width:2.4!important;opacity:.85!important;fill:none;stroke-dasharray:7 5;filter:drop-shadow(0 0 3px #000)}
+#citiesLayer .citymark text{paint-order:stroke;stroke:#001521;stroke-width:4px;stroke-linejoin:round;fill:#fff;font-size:15px;font-weight:700}
+#citiesLayer .citymark circle{fill:#fff;stroke:#102d42;stroke-width:2}
+.maphead{display:none}.mapfoot{bottom:85px}.mapcontrols{bottom:85px}.layerlegend{bottom:190px}
+@media(max-width:1150px){.liveDashboard{width:min(315px,calc(100% - 24px))}.liveStats b{font-size:12px}.mapfoot{display:none}}
+@media(max-width:850px){.layout{height:auto}.mapwrap{min-height:690px}.liveDashboard{top:8px;left:8px}.mapPlayback{bottom:8px}}
+  </style>
+<style>
+   /* v2.5: give the terrain back to the map; chart in scientific sidebar */
+.liveDashboard{position:relative!important;top:auto!important;left:auto!important;z-index:1!important;width:100%!important;max-width:none!important;margin:0 0 13px!important;padding:11px!important;box-shadow:none!important}
+.liveStats{gap:4px!important}.liveStats b{font-size:12px!important}#liveGraph{height:115px!important}
+.mapstage{transform-origin:center center;transition:transform .35s ease}
+#floodLayer{mix-blend-mode:normal!important}
+#floodLayer .flood{fill:#f40025!important;fill-opacity:.92!important;stroke:#ff9b9b!important;stroke-width:3.2!important;stroke-dasharray:none!important;filter:drop-shadow(0 0 15px #ff002a)!important}
+#floodLayer .floodcore{fill:#9f0018!important;fill-opacity:.93!important;stroke:#ff4058;stroke-width:2}
+#rainLayer .cloudshape{fill:#8396aa;fill-opacity:.94;stroke:#d8f1ff;stroke-width:2.5;filter:drop-shadow(0 6px 8px #00111c)}
+.zoneReportRow{display:grid;grid-template-columns:minmax(0,1fr) 70px 52px;gap:7px;align-items:center;font-size:11px;padding:7px 0;border-bottom:1px solid #194357}
+.zoneReportRow .bar{height:7px;border-radius:6px;background:#15334a;overflow:hidden;margin-top:5px}.zoneReportRow .bar i{display:block;height:100%;background:linear-gradient(90deg,#ff5971,#d00024)}
+.zoneReportRow strong{color:#ff7587;text-align:right}.zoneReportRow em{font-style:normal;color:#b5cbd6;text-align:right}
+.forecastResults{margin-top:10px}.forecastRow{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #194357;font-size:11px}.forecastRow b{color:#ff7d8e}
+.mapPlayback{bottom:10px!important}.mapcontrols{bottom:72px!important}.layerlegend{bottom:170px!important}
+@media(max-width:1150px){.liveDashboard{width:100%!important}}
+  </style>
+<style>
+   /* v2.7: visible simulation chart in right sidebar, not over map */
+#liveDashboard.simulationGraphCard{position:sticky!important;top:0!important;left:auto!important;width:100%!important;max-width:none!important;transform:none!important;background:#071e30!important;border:2px solid #24d9f2!important;box-shadow:0 7px 20px #000a!important;padding:12px!important;display:block!important}
+#liveGraph{height:155px!important;width:100%!important;display:block!important}
+#liveDashboard .liveStats{grid-template-columns:repeat(3,minmax(0,1fr))}
+#liveDashboard .liveStats b{font-size:13px!important;overflow-wrap:anywhere}
+.right{scroll-behavior:smooth}
+.simulationGraphCard .liveTitle{margin-top:6px}
+  </style>
+<style>
+   /* v3.8: keep legend and explanatory information outside map viewport */
+.mapInfoCard{margin-top:12px;padding:12px!important}
+.mapInfoCard .layerlegend,.mapInfoCard .mapfoot{position:static!important;inset:auto!important;bottom:auto!important;left:auto!important;right:auto!important;display:grid!important;max-width:none!important;width:100%!important;margin:0!important;box-shadow:none!important;background:transparent!important;border:0!important;padding:5px 0!important;font-size:11px!important;transform:none!important}
+.mapInfoCard .mapfoot{display:block!important;border-top:1px solid #21516a!important;margin-top:9px!important;padding-top:9px!important}
+.mapPlayback{width:min(560px,calc(100% - 22px))!important;gap:6px!important;padding:8px!important;flex-wrap:nowrap}
+.mapPlayback select{max-width:155px;min-width:110px;font-size:11px!important}
+.mapPlayback button{white-space:nowrap;font-size:11px!important}
+.mapPlayback span{white-space:nowrap;font-size:10px!important}
+.mapcontrols{bottom:72px!important;right:9px!important;z-index:9}
+.maptag{max-width:185px!important;font-size:10px!important;padding:8px!important}
+#liveDashboard.simulationGraphCard{position:relative!important;top:auto!important}
+.right .card{min-width:0}
+@media(max-width:1250px){.layout{grid-template-columns:185px minmax(330px,1fr) 245px!important}.side{padding:9px!important}.card{padding:10px!important}.mapPlayback{width:calc(100% - 12px)!important}.mapPlayback select{max-width:125px}}
+@media(max-width:850px){.layout{display:flex!important;flex-direction:column!important;height:auto!important}.mapwrap{order:-1!important;height:600px!important}.mapPlayback{width:min(560px,calc(100% - 16px))!important}}
+  </style>
+<style>
+/* v3.8: reserved control strip prevents the map, labels and toolbar overlapping */
+.mapwrap{isolation:isolate}
+.mapstage{inset:8px 0 98px!important;max-height:calc(100% - 106px)!important;width:min(100%,calc((100dvh - 250px) * 855 / 723))!important}
+.mapPlayback{position:absolute!important;bottom:10px!important;left:12px!important;right:12px!important;transform:none!important;width:calc(100% - 24px)!important;max-width:none!important;min-height:48px!important;z-index:20!important}
+.mapcontrols{bottom:68px!important;right:12px!important;display:flex!important;z-index:19!important}
+.maptag{top:10px!important;right:10px!important;max-width:160px!important;opacity:.92}
+.mapwrap:after{content:'';position:absolute;bottom:0;left:0;right:0;height:98px;background:linear-gradient(0deg,#031421 78%,#03142100);pointer-events:none;z-index:3}
+.mapPlayback,.mapcontrols{z-index:20!important}
+@media(max-width:1300px){.layout{grid-template-columns:195px minmax(320px,1fr) 255px!important}.mapstage{width:100%!important}.mapPlayback{gap:5px!important;padding:6px!important}.mapPlayback select{min-width:100px!important;max-width:132px!important}.mapPlayback span{font-size:9px!important}.mapcontrols button{padding:5px!important}}
+@media(max-width:850px){.mapwrap{min-height:620px!important}.mapstage{inset:0 0 100px!important;max-height:calc(100% - 100px)!important}}
+</style><style id="astronomicon-v41-polish">
+/* v4.1: preserve full southern coastline while keeping the projection controls unobstructed */
+.mapstage{transform-origin:50% 46%!important}
+/* Prioritize the scientifically important values and chart readability */
+.right .metric b{font-size:21px!important}
+.right .card h3{font-size:15px!important;line-height:1.3!important}
+.right .tiny{font-size:11px!important;line-height:1.45!important}
+#liveDashboard{border-color:#2e9ab1!important}
+/* Keep animated flood boundaries subdued and map labels legible */
+.flood{animation:none!important;stroke-dasharray:none!important}
+.floodzone .flood,.floodzone path.flood,.floodzone ellipse.flood{fill-opacity:.37!important;stroke-width:2!important;filter:drop-shadow(0 0 3px #f03b5e)!important}
+.floodzone:hover .flood{fill-opacity:.52!important}
+</style></head>
+<body>
+<header>
+<div>
+<div class="kicker">
+     EARTH OBSERVATION · WATER INTELLIGENCE
+    </div>
+<h1>
+     AQUA
+     <span>
+      ·NEXUS
+     </span>
+     3D
+     <span style="font-size:12px;border:1px solid #168e9c;border-radius:20px;padding:4px">
+      v4.1
+     </span>
+</h1>
+</div>
+<nav>
+<button class="navbtn active" data-nav="Inicio">
+     Resumen
+    </button>
+<button class="navbtn" data-nav="Mapa 3D">
+     Mapa 3D
+    </button>
+<button class="navbtn" data-nav="Cuencas">
+     Cuencas
+    </button>
+<button class="navbtn" data-nav="Hidrología">
+     Lluvias
+    </button>
+<button class="navbtn" data-nav="Simulador">
+     Simulador
+    </button>
+<button class="navbtn" data-nav="Datos NASA">
+     NASA
+    </button>
+</nav>
+<div class="pill">
+    ● PROTOTIPO · SIMULACIÓN
+   </div>
+</header>
+<div class="layout">
+<aside class="side left">
+<div class="tab">
+     CENTRO DE CONTROL HÍDRICO
+    </div>
+<div class="card">
+<span class="badge">
+      CUENCA PILOTO
+     </span>
+<h3 style="margin-top:12px">
+      Cuareim · Quaraí
+     </h3>
+<p>
+      Mapa regional 3D de demostración. Selecciona un río, explora zonas inundables y reproduce escenarios de lluvia.
+     </p>
+<div class="metrics">
+<div class="metric">
+<b>
+        3
+       </b>
+<small>
+        Países en escena
+       </small>
+</div>
+<div class="metric">
+<b>
+        0
+       </b>
+<small>
+        Estaciones reales conectadas
+       </small>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>
+      ▧ Capas interactivas
+     </h3>
+<div id="layers">
+</div>
+</div>
+<div class="card">
+<h3>
+      ◈ Zonas de inundación
+     </h3>
+<p class="tiny">
+      Selecciona varias zonas del país. Escenarios ilustrativos, no cartografía de riesgo.
+     </p>
+<div class="zoneActions">
+<button id="zonesAll">
+       Todas
+      </button>
+<button id="zonesNone">
+       Ninguna
+      </button>
+</div>
+<div class="zoneList" id="zoneChecks">
+</div>
+<div class="tiny" id="selectedZones">
+      9 / 9 zonas activas
+     </div>
+</div>
+<div class="card">
+<h3>
+      ≋ Seleccionar río
+     </h3>
+<div id="rivers">
+</div>
+</div>
+<div class="card">
+<h3>
+      ◷ Línea de tiempo
+     </h3>
+<div class="timebox">
+<button id="play">
+       ▶
+      </button>
+<input id="month" max="35" min="0" type="range" value="0"/>
+<button id="resetTime">
+       ↺
+      </button>
+</div>
+<p id="dateLabel">
+      Enero 2023 · Simulación
+     </p>
+<div class="tiny">
+      36 meses · El gráfico, la lluvia y las zonas inundables evolucionan juntos. La respuesta hidrológica es simulada.
+     </div>
+<div class="controlrow">
+<span>
+       Velocidad
+      </span>
+<select id="speed" style="background:#0b3546;color:white;border:1px solid #21647b;border-radius:6px;padding:5px">
+<option value="1200">
+        Lenta
+       </option>
+<option selected="" value="650">
+        Normal
+       </option>
+<option value="300">
+        Rápida
+       </option>
+</select>
+</div>
+</div>
+<section aria-label="Información del mapa" class="card mapInfoCard">
+<h3>
+      Leyenda e información del mapa
+     </h3>
+<div class="layerlegend" id="layerlegend">
+<b>
+       LEYENDA DE CAPAS
+      </b>
+<div>
+<i class="swatch riverkey">
+</i>
+       Ríos
+      </div>
+<div>
+<i class="swatch floodkey">
+</i>
+       Inundación simulada
+      </div>
+<div>
+<i class="swatch rainkey">
+</i>
+       Lluvia simulada
+      </div>
+</div>
+<div class="mapfoot">
+<div class="legend">
+<span>
+        ALTITUD ILUSTRATIVA
+       </span>
+</div>
+<div class="gradient" style="margin:8px 0">
+</div>
+<div style="display:flex;justify-content:space-between">
+<span>
+        Baja
+       </span>
+<span>
+        Alta
+       </span>
+</div>
+<p class="warning">
+       Geometría y escenarios ficticios. No usar para emergencias ni decisiones de infraestructura.
+      </p>
+</div>
+</section>
+</aside>
+<main class="mapwrap" id="mapwrap">
+<div class="mapPlayback" id="mapPlayback">
+<select aria-label="Periodo" id="playPeriod" style="background:#0b3446;color:#fff;border:1px solid #2de4fa;border-radius:7px;padding:7px">
+<option value="history">
+       Histórico 2023–25
+      </option>
+<option selected="" value="2026">
+       Proyección 2026
+      </option>
+<option value="2027">
+       Proyección 2027
+      </option>
+</select>
+<button id="mapPlay">
+      ▶ Reproducir
+     </button>
+<input id="mapScrub" max="35" min="0" type="range" value="0"/>
+<span id="mapDate">
+      Ene 2023
+     </span>
+</div>
+<div class="mapstage" id="mapstage">
+<div class="map" id="map">
+</div>
+<svg class="overlay" id="overlay" preserveaspectratio="xMidYMid meet" viewbox="0 0 1000 800">
+
+<g aria-label="Centros departamentales ilustrativos" id="citiesLayer">
+<g class="citymark">
+<circle cx="367" cy="215" r="3.4">
+</circle>
+<text x="374" y="208">
+         Artigas
+        </text>
+</g>
+<g class="citymark">
+<circle cx="310" cy="297" r="3.4">
+</circle>
+<text x="317" y="290">
+         Salto
+        </text>
+</g>
+<g class="citymark">
+<circle cx="313" cy="380" r="3.4">
+</circle>
+<text x="320" y="373">
+         Paysandú
+        </text>
+</g>
+<g class="citymark">
+<circle cx="400" cy="422" r="3.4">
+</circle>
+<text x="407" y="415">
+         Río Negro
+        </text>
+</g>
+<g class="citymark">
+<circle cx="376" cy="505" r="3.4">
+</circle>
+<text x="383" y="498">
+         Soriano
+        </text>
+</g>
+<g class="citymark">
+<circle cx="420" cy="570" r="3.4">
+</circle>
+<text x="427" y="563">
+         Colonia
+        </text>
+</g>
+<g class="citymark">
+<circle cx="565" cy="260" r="3.4">
+</circle>
+<text x="572" y="253">
+         Rivera
+        </text>
+</g>
+<g class="citymark">
+<circle cx="515" cy="335" r="3.4">
+</circle>
+<text x="522" y="328">
+         Tacuarembó
+        </text>
+</g>
+<g class="citymark">
+<circle cx="694" cy="359" r="3.4">
+</circle>
+<text x="701" y="352">
+         Cerro Largo
+        </text>
+</g>
+<g class="citymark">
+<circle cx="713" cy="445" r="3.4">
+</circle>
+<text x="720" y="438">
+         Treinta y Tres
+        </text>
+</g>
+<g class="citymark">
+<circle cx="520" cy="448" r="3.4">
+</circle>
+<text x="527" y="441">
+         Durazno
+        </text>
+</g>
+<g class="citymark">
+<circle cx="472" cy="514" r="3.4">
+</circle>
+<text x="479" y="507">
+         Flores
+        </text>
+</g>
+<g class="citymark">
+<circle cx="572" cy="520" r="3.4">
+</circle>
+<text x="579" y="513">
+         Florida
+        </text>
+</g>
+<g class="citymark">
+<circle cx="502" cy="601" r="3.4">
+</circle>
+<text x="509" y="594">
+         San José
+        </text>
+</g>
+<g class="citymark">
+<circle cx="597" cy="610" r="3.4">
+</circle>
+<text x="604" y="603">
+         Canelones
+        </text>
+</g>
+<g class="citymark">
+<circle cx="584" cy="674" r="3.4">
+</circle>
+<text x="591" y="667">
+         Montevideo
+        </text>
+</g>
+<g class="citymark">
+<circle cx="656" cy="536" r="3.4">
+</circle>
+<text x="663" y="529">
+         Lavalleja
+        </text>
+</g>
+<g class="citymark">
+<circle cx="706" cy="623" r="3.4">
+</circle>
+<text x="713" y="616">
+         Maldonado
+        </text>
+</g>
+<g class="citymark">
+<circle cx="794" cy="554" r="3.4">
+</circle>
+<text x="801" y="547">
+         Rocha
+        </text>
+</g>
+</g>
+<g id="basinLayer">
+<path class="basin" d="M250 248 Q305 135 400 150 Q490 160 505 240 Q448 320 340 303Z">
+</path>
+</g>
+<g id="floodLayer">
+<g class="floodzone" data-name="Artigas / Cuareim" data-zone="0">
+<ellipse class="flood" cx="320" cy="285" rx="62" ry="26">
+</ellipse>
+<ellipse class="floodcore" cx="320" cy="285" rx="40.9" ry="16.4">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Salto / Uruguay" data-zone="1">
+<ellipse class="flood" cx="275" cy="362" rx="57" ry="29">
+</ellipse>
+<ellipse class="floodcore" cx="275" cy="362" rx="37.6" ry="18.3">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Paysandú / Uruguay" data-zone="2">
+<ellipse class="flood" cx="292" cy="436" rx="59" ry="27">
+</ellipse>
+<ellipse class="floodcore" cx="292" cy="436" rx="38.9" ry="17.0">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Mercedes / Soriano" data-zone="3">
+<ellipse class="flood" cx="365" cy="525" rx="59" ry="26">
+</ellipse>
+<ellipse class="floodcore" cx="365" cy="525" rx="38.9" ry="16.4">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Durazno / Yí" data-zone="4">
+<ellipse class="flood" cx="524" cy="460" rx="61" ry="29">
+</ellipse>
+<ellipse class="floodcore" cx="524" cy="460" rx="40.3" ry="18.3">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Paso de los Toros" data-zone="5">
+<ellipse class="flood" cx="485" cy="402" rx="49" ry="22">
+</ellipse>
+<ellipse class="floodcore" cx="485" cy="402" rx="32.3" ry="13.9">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Treinta y Tres / Olimar" data-zone="6">
+<ellipse class="flood" cx="718" cy="477" rx="62" ry="29">
+</ellipse>
+<ellipse class="floodcore" cx="718" cy="477" rx="40.9" ry="18.3">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Rocha / Laguna Merín" data-zone="7">
+<ellipse class="flood" cx="778" cy="555" rx="62" ry="32">
+</ellipse>
+<ellipse class="floodcore" cx="778" cy="555" rx="40.9" ry="20.2">
+</ellipse>
+</g>
+<g class="floodzone" data-name="Santa Lucía" data-zone="8">
+<ellipse class="flood" cx="545" cy="604" rx="53" ry="25">
+</ellipse>
+<ellipse class="floodcore" cx="545" cy="604" rx="35.0" ry="15.8">
+</ellipse>
+</g>
+</g>
+<g class="hidden" id="rainLayer" style="display:none!important">
+<g class="storm" transform="translate(390 255) scale(1)">
+<path class="cloudshape" d="M -63 15 C -74 -7 -59 -30 -34 -30 C -26 -62 19 -64 31 -32 C 62 -37 80 -11 69 14 C 66 31 52 35 30 35 L -37 35 C -55 35 -64 29 -63 15 Z">
+</path>
+<path class="raindrop" d="M -37 32 l -13 31">
+</path>
+<path class="raindrop" d="M -12 32 l -13 31">
+</path>
+<path class="raindrop" d="M 14 32 l -13 31">
+</path>
+<path class="raindrop" d="M 39 32 l -13 31">
+</path>
+</g>
+<g class="storm" transform="translate(670 455) scale(0.8)">
+<path class="cloudshape" d="M -63 15 C -74 -7 -59 -30 -34 -30 C -26 -62 19 -64 31 -32 C 62 -37 80 -11 69 14 C 66 31 52 35 30 35 L -37 35 C -55 35 -64 29 -63 15 Z">
+</path>
+<path class="raindrop" d="M -37 32 l -13 31">
+</path>
+<path class="raindrop" d="M -12 32 l -13 31">
+</path>
+<path class="raindrop" d="M 14 32 l -13 31">
+</path>
+<path class="raindrop" d="M 39 32 l -13 31">
+</path>
+</g>
+<g class="storm" transform="translate(515 520) scale(0.68)">
+<path class="cloudshape" d="M -63 15 C -74 -7 -59 -30 -34 -30 C -26 -62 19 -64 31 -32 C 62 -37 80 -11 69 14 C 66 31 52 35 30 35 L -37 35 C -55 35 -64 29 -63 15 Z">
+</path>
+<path class="raindrop" d="M -37 32 l -13 31">
+</path>
+<path class="raindrop" d="M -12 32 l -13 31">
+</path>
+<path class="raindrop" d="M 14 32 l -13 31">
+</path>
+<path class="raindrop" d="M 39 32 l -13 31">
+</path>
+</g>
+</g>
+
+</svg>
+</div>
+<div class="maphead">
+<div class="kicker">
+      GEMELO DIGITAL · MAQUETA 3D
+     </div>
+<b>
+      Uruguay + cuencas vecinas
+     </b>
+<div class="tiny">
+      Terreno artístico precalculado · capas seleccionables
+     </div>
+</div>
+<div class="maptag">
+     ◉
+     <span id="mapInfo">
+      Ríos, lluvia y riesgo · simulación interactiva
+     </span>
+</div>
+<div class="mapcontrols">
+<button id="zoomOut">
+      −
+     </button>
+<button id="zoomIn">
+      ＋
+     </button>
+<button id="resetMap">
+      ⟲ Restablecer
+     </button>
+</div>
+</main>
+<aside class="side right">
+<div class="tab">
+     LABORATORIO CIENTÍFICO
+    </div>
+<div class="card simulationGraphCard" id="liveDashboard" style="position:sticky;top:0;z-index:30;margin-bottom:12px;">
+<div class="tiny">
+      GRÁFICO DINÁMICO · HISTÓRICO Y PROYECCIONES 2026–2027
+     </div>
+<div style="display:flex;align-items:center;gap:8px;margin:8px 0">
+<label for="graphPeriod" style="font-size:12px;color:#bcecff">
+       Período:
+      </label>
+<select id="graphPeriod" style="flex:1;background:#0a344a;color:#fff;border:1px solid #2de4fa;padding:8px;border-radius:7px">
+<option value="history">
+        Histórico 2023–2025
+       </option>
+<option selected="" value="2026">
+        Proyección 2026
+       </option>
+<option value="2027">
+        Proyección 2027
+       </option>
+</select>
+</div>
+<div id="projectionWarning" style="font-size:10px;color:#ffd48b;margin-bottom:8px">
+      Proyección demostrativa: no es una alerta de inundación real.
+     </div>
+<div class="liveTitle">
+<span class="livePulse">
+</span>
+      EVOLUCIÓN EN VIVO
+      <strong id="liveMonth">
+       ENE 2023
+      </strong>
+</div>
+<div class="liveStats">
+<div>
+<small>
+        LLUVIAS
+       </small>
+<b id="liveRain">
+        —
+       </b>
+</div>
+<div>
+<small>
+        INUNDACIÓN
+       </small>
+<b id="liveArea">
+        —
+       </b>
+</div>
+<div>
+<small>
+        AGUA ESTIMADA
+       </small>
+<b id="liveVolume">
+        —
+       </b>
+</div>
+</div>
+<svg aria-label="Gráfico animado de lluvia e inundación" id="liveGraph" preserveaspectratio="none" viewbox="0 0 440 110">
+</svg>
+<div class="liveKey">
+<span>
+       ▮ Lluvia
+      </span>
+<span>
+       ━ Superficie inundada
+      </span>
+<span id="liveCount">
+       9 zonas
+      </span>
+</div>
+</div>
+<div class="card" id="nasaObservedCard" style="border:1px solid #2a9cae;background:#092c3d">
+<h3>
+      ◉ Precipitaciones NASA · observaciones históricas
+     </h3>
+<p class="tiny">
+      Datos externos reales solo después de una consulta exitosa. NASA POWER PRECTOTCORR, punto próximo a cada ciudad; no es lluvia media de la cuenca ni superficie inundada.
+     </p>
+<label class="tiny" for="obsCity">
+      Punto de observación
+     </label>
+<select id="obsCity" style="width:100%;padding:8px;background:#073044;color:#fff;border:1px solid #2b91a5">
+<option value="artigas">
+       Artigas
+      </option>
+<option value="salto">
+       Salto
+      </option>
+<option value="paysandu">
+       Paysandú
+      </option>
+</select>
+<button class="btn" id="obsFetch" style="margin-top:9px">
+      Consultar datos NASA 2018–2025
+     </button>
+<button class="btn" disabled="" id="obsExport">
+      Exportar datos NASA CSV
+     </button>
+<p class="tiny" id="obsStatus" role="status">
+      Sin conexión consultada: los gráficos de simulación NO son datos reales.
+     </p>
+<div class="metrics">
+<div class="metric">
+<b id="obsMonths">
+        —
+       </b>
+<small>
+        Meses recibidos
+       </small>
+</div>
+<div class="metric">
+<b id="obsAnnual">
+        —
+       </b>
+<small>
+        Promedio anual (mm/año)
+       </small>
+</div>
+</div>
+<svg aria-label="Serie observada de precipitación NASA" id="obsChart" style="width:100%;height:155px;background:#061c29;border-radius:8px" viewbox="0 0 320 155">
+<text fill="#9ac8d8" font-size="12" x="12" y="30">
+       Consulta NASA para mostrar datos
+      </text>
+</svg>
+<p class="tiny" id="obsSource">
+      Fuente: NASA POWER · datos no cargados. Histórico 2018–2025.
+     </p>
+<a class="sourceLink" href="/static/modelo_real.html" target="_blank">
+      Abrir laboratorio de regresión y validación ↗
+     </a>
+</div>
+<div class="card" id="monthlyReportCard">
+<h3>
+      ▣ Reporte mensual de inundación
+     </h3>
+<p class="tiny">
+      Escenario ilustrativo por zona. Rojo = zona con mayor afectación relativa.
+     </p>
+<div id="monthZoneReport">
+</div>
+<p class="tiny" id="reportPeriod">
+</p>
+</div>
+<div class="card" id="forecastCard" style=";display:none!important;;display:none!important;">
+<h3>
+      ⌁ Regresión lineal · 2026–2027
+     </h3>
+<p class="tiny">
+      Modelo de regresión lineal múltiple (año, lluvia del mes y lluvia previa), con diagnóstico de recorte de valores negativos. Los escenarios de lluvia futura son ilustrativos y las estimaciones NO son alertas.
+     </p>
+<label class="tiny" for="forecastCsv">
+      Histórico CSV (zona,ano,mes,area_ha,lluvia_mm opcional,nivel_m opcional)
+     </label>
+<input accept=".csv,text/csv" id="forecastCsv" style="width:100%;margin:8px 0" type="file"/>
+<div class="zoneActions">
+<button id="demoForecast">
+       Modelo demostrativo
+      </button>
+<button id="clearForecast">
+       Limpiar
+      </button>
+</div>
+<div class="tiny" id="forecastStatus" style="margin:10px 0">
+      Sin histórico real cargado.
+     </div>
+<label class="tiny">
+      Año a proyectar
+     </label>
+<select id="forecastYear" style="width:100%;padding:8px;background:#0b3546;color:white;border:1px solid #21647b">
+<option value="2026">
+       2026
+      </option>
+<option value="2027">
+       2027
+      </option>
+</select>
+<div class="tiny" id="modelDiagnostics" style="margin:8px 0;padding:8px;border:1px solid #286078;border-radius:7px">Modelo sin validar.</div><div class="forecastResults" id="forecastResults">
+</div>
+<div id="forecastMonthly" style="margin-top:12px;max-height:280px;overflow:auto">
+</div>
+<button class="btn" id="downloadForecast" style="margin-top:8px">
+      Descargar predicción CSV
+     </button>
+<p class="tiny">
+      Extrapolación lineal exploratoria; no calcula probabilidades, profundidades ni límites inundables. No usar para alertas o decisiones de protección civil.
+     </p>
+</div>
+<div class="card">
+<h3>
+      ◈ Río seleccionado
+     </h3>
+<div id="riverTitle" style="font-size:20px;color:#36e9f7;font-weight:800">
+      Río Cuareim · Quaraí
+     </div>
+<p id="riverDescription">
+      Cuenca compartida entre Uruguay y Brasil. Trazado de demostración.
+     </p>
+<div class="metrics">
+<div class="metric">
+<b id="flowValue">
+        64
+       </b>
+<small>
+        Índice fluvial simulado
+       </small>
+</div>
+<div class="metric">
+<b id="rainValue">
+        112
+       </b>
+<small>
+        Lluvia simulada (mm/mes)
+       </small>
+</div>
+</div>
+</div>
+<div class="card">
+<h3>
+      ◉ Evolución del escenario
+     </h3>
+<div class="metrics">
+<div class="metric">
+<b id="floodArea">
+        —
+       </b>
+<small>
+        Área inundada hipotética (ha)
+       </small>
+</div>
+<div class="metric">
+<b id="floodVolume">
+        —
+       </b>
+<small>
+        Volumen de inundación hipotético (m³)
+       </small>
+</div>
+<div class="metric">
+<b id="rainIntensity">
+        —
+       </b>
+<small>
+        Lluvia del mes (mm o mm/día)
+       </small>
+</div>
+<div class="metric">
+<b id="scenarioState">
+        —
+       </b>
+<small>
+        Estado simulado
+       </small>
+</div>
+</div>
+<p class="tiny">
+      Los volúmenes son aproximaciones geométricas ilustrativas, no caudales medidos ni pronósticos.
+     </p>
+</div>
+<div class="card">
+<h3>
+      ≋ Historia de lluvias y crecidas
+     </h3>
+<div class="tiny" id="chartSource">
+      Serie mensual simulada · 2023–2025
+     </div>
+<div class="chart">
+<svg id="chart" preserveaspectratio="none" viewbox="0 0 320 155">
+</svg>
+</div>
+<p class="tiny" id="chartDetail">
+      Selecciona un mes en la línea de tiempo.
+     </p>
+<button class="btn" id="nasaBtn">
+      ◉ Consultar NASA POWER online
+     </button>
+<button class="btn hidden" id="demoBtn">
+      ↺ Volver a datos simulados
+     </button>
+<p class="tiny" id="nasaStatus">
+      NASA POWER: punto Artigas, no representa toda la cuenca.
+     </p>
+</div>
+<div class="card">
+<h3>
+      ▤ Evolución de zonas inundadas
+     </h3>
+<div class="tiny">
+      Área y volumen teóricos de las zonas seleccionadas · simulación
+     </div>
+<div class="metrics">
+<div class="metric">
+<b id="graphArea">
+        —
+       </b>
+<small>
+        Superficie ilustrativa
+       </small>
+</div>
+<div class="metric">
+<b id="graphVolume">
+        —
+       </b>
+<small>
+        Volumen ilustrativo
+       </small>
+</div>
+</div>
+<div class="chart">
+<svg id="floodChart" preserveaspectratio="none" viewbox="0 0 320 155">
+</svg>
+</div>
+</div>
+<div class="card">
+<h3>
+      ▣ Simulador de almacenamiento
+     </h3>
+<p>
+      Volumen geométrico idealizado; no calcula viabilidad, captación ni pérdidas.
+     </p>
+<div class="controlrow">
+<span>
+       Superficie
+      </span>
+<b id="areaText">
+       100 ha
+      </b>
+</div>
+<input id="area" max="1000" min="10" step="10" type="range" value="100"/>
+<div class="controlrow">
+<span>
+       Profundidad media
+      </span>
+<b id="depthText">
+       5 m
+      </b>
+</div>
+<input id="depth" max="25" min="1" step="1" type="range" value="5"/>
+<div class="stat" id="volume">
+      5,00 hm³
+     </div>
+<p class="tiny">
+      Capacidad teórica = área × profundidad.
+     </p>
+</div>
+<div class="card" id="stationCard" style=";display:none!important;;display:none!important;">
+<h3>
+      ◈ Estaciones hidrométricas · observaciones
+     </h3>
+<p>
+      Importa mediciones de nivel y caudal publicadas por un organismo o estación. Los datos quedan en tu navegador y
+      <b>
+       no se identifican como oficiales hasta verificar su origen
+      </b>
+      .
+     </p>
+<label class="tiny" for="stationFile">
+      CSV con columnas fecha,nivel_m,caudal_m3s (AAAA-MM-DD)
+     </label>
+<input accept=".csv,text/csv" id="stationFile" style="width:100%;margin:8px 0" type="file"/>
+<label class="tiny" for="stationSource">
+      Fuente / estación / enlace del conjunto de datos
+     </label>
+<input id="stationSource" placeholder="Ej.: estación, organismo y URL de origen" style="width:100%;background:#092b3d;color:white;border:1px solid #21647b;border-radius:6px;padding:9px;margin:8px 0"/>
+<button class="btn" id="stationLoad">
+      Importar mediciones
+     </button>
+<button class="btn" id="stationClear">
+      Quitar mediciones
+     </button>
+<div class="tiny" id="stationStatus" role="status">
+      Sin mediciones cargadas. No hay conexión automática a estaciones oficiales.
+     </div>
+<div class="metrics">
+<div class="metric">
+<b id="stationLevel">
+        —
+       </b>
+<small>
+        Nivel observado (m) · mes seleccionado
+       </small>
+</div>
+<div class="metric">
+<b id="stationFlow">
+        —
+       </b>
+<small>
+        Caudal observado (m³/s) · mes seleccionado
+       </small>
+</div>
+</div>
+<div class="chart">
+<svg aria-label="Evolución de mediciones de estación" id="stationChart" preserveaspectratio="none" viewbox="0 0 300 115">
+</svg>
+</div>
+<p class="tiny" id="stationProvenance">
+      El gráfico muestra observaciones importadas, nunca una predicción de inundación. Sin datos, queda vacío.
+     </p>
+<p class="tiny">
+<a class="sourceLink" href="https://www.gub.uy/ministerio-ambiente/" rel="noopener" target="_blank">
+       Ministerio de Ambiente de Uruguay
+      </a>
+      ·
+      <a class="sourceLink" href="https://www.gub.uy/sistema-nacional-emergencias/" rel="noopener" target="_blank">
+       SINAE
+      </a>
+      . Consulta disponibilidad, licencia y estaciones antes de importar.
+     </p>
+</div>
+<div class="card" id="fuentesReales">
+<h3>
+      ◈ Hidrografía en línea · OSM
+     </h3>
+<p>
+      Consulta real de nombres de tramos de ríos en el entorno Cuareim–Quaraí. No modifica los trazados artísticos del mapa.
+     </p>
+<button class="btn" id="hydroBtn">
+      Consultar ríos reales (OSM)
+     </button>
+<div class="tiny" id="hydroStatus" role="status">
+      Sin consulta. Fuente externa opcional.
+     </div>
+<div class="hydroNames" id="hydroNames">
+</div>
+<p class="tiny">
+      Fuente: OpenStreetMap / Overpass. Los resultados pueden ser incompletos; no son datos oficiales de inundación.
+     </p>
+</div>
+<div class="card">
+<h3>
+      ◈ Datos de lluvia satelital
+     </h3>
+<p>
+<b>
+       NASA GPM IMERG:
+      </b>
+      producto de precipitación espacial. Próxima etapa: mosaicos georreferenciados sobre la maqueta.
+     </p>
+<a class="sourceLink" href="https://gpm.nasa.gov/data/imerg" rel="noopener noreferrer" target="_blank">
+      Consultar NASA GPM IMERG ↗
+     </a>
+<p class="tiny">
+      No se presenta una capa GPM como conectada hasta verificar sus imágenes y su alineación espacial.
+     </p>
+</div>
+<div class="card" id="realGeoCard" style=";display:none!important;;display:none!important;">
+<h3>
+      ◈ Capas geográficas verificables
+     </h3>
+<p>
+      Los datos oficiales se muestran en un visor geográfico separado: la maqueta artística no permite una superposición precisa.
+     </p>
+<label class="tiny" for="floodGeo">
+      Cargar zonas inundables GeoJSON (fuente oficial o verificada)
+     </label>
+<input accept=".geojson,.json,application/geo+json,application/json" id="floodGeo" style="width:100%;margin:9px 0" type="file"/>
+<div class="tiny" id="geoStatus" role="status">
+      Sin polígonos reales cargados. Las zonas del mapa principal siguen siendo simuladas.
+     </div>
+<div class="geoView" id="geoView">
+<svg id="geoSvg" preserveaspectratio="xMidYMid meet" viewbox="0 0 450 400">
+</svg>
+</div>
+<p class="tiny">
+      Vista en coordenadas aproximadas EPSG:4326; no es una herramienta de emergencias. Formatos admitidos: Polygon/MultiPolygon GeoJSON.
+     </p>
+<hr style="border-color:#17475a"/>
+<h3>
+      ◈ Precipitación espacial · NASA GIBS
+     </h3>
+<button class="btn" id="gibsDiscover">
+      Buscar capas NASA disponibles
+     </button>
+<div class="tiny" id="gibsStatus" role="status">
+      Sin consulta. La disponibilidad depende del servicio NASA GIBS.
+     </div>
+<select aria-label="Capa GIBS" id="gibsLayer" style="width:100%;margin:9px 0;background:#0b3546;color:white;border:1px solid #21647b;padding:8px">
+<option value="">
+       Primero busca capas disponibles
+      </option>
+</select>
+<label class="tiny" for="gibsDate">
+      Fecha de observación
+     </label>
+<input id="gibsDate" style="width:100%;background:#0b3546;color:white;border:1px solid #21647b;padding:8px" type="date" value="2025-01-15"/>
+<button class="btn" id="gibsLoad">
+      Mostrar imagen NASA georreferenciada
+     </button>
+<div class="geoView">
+<img alt="Imagen NASA GIBS de precipitación" id="gibsImage" style="width:100%;display:none"/>
+</div>
+<p class="tiny">
+      El recorte corresponde a Uruguay y entorno regional, no a una cuenca delimitada. Los píxeles transparentes o vacíos no significan ausencia de lluvia. Solo se etiqueta como real cuando NASA devuelve una imagen válida.
+     </p>
+</div>
+<div class="card">
+<h3>
+      ▣ Fuentes de observación
+     </h3>
+<p>
+      Las consultas se distinguen por su origen.
+      <b>
+       NASA POWER
+      </b>
+      aporta lluvia mensual estimada para un punto de Artigas, no caudales ni áreas inundadas.
+     </p>
+<div class="metric">
+<small>
+       NASA POWER · punto Artigas
+      </small>
+<b id="sourcePower" style="font-size:14px">
+       Sin consulta
+      </b>
+</div>
+<div class="metric" style="margin-top:8px">
+<small>
+       NASA GIBS · imagen satelital
+      </small>
+<b id="sourceGibs" style="font-size:14px">
+       Sin consulta
+      </b>
+</div>
+<div class="metric" style="margin-top:8px">
+<small>
+       Hidrografía OSM · Cuareim
+      </small>
+<b id="sourceOsm" style="font-size:14px">
+       Sin consulta
+      </b>
+</div>
+<p class="tiny">
+      Observatorios uruguayos: fuentes para la siguiente integración; todavía no se descargan aforos o alertas oficiales.
+     </p>
+<p>
+<a class="sourceLink" href="https://www.gub.uy/sistema-nacional-emergencias/" rel="noopener" target="_blank">
+       SINAE · emergencias
+      </a>
+<br/>
+<a class="sourceLink" href="https://www.inumet.gub.uy/" rel="noopener" target="_blank">
+       INUMET · meteorología
+      </a>
+<br/>
+<a class="sourceLink" href="https://www.gub.uy/ministerio-ambiente/" rel="noopener" target="_blank">
+       Ministerio de Ambiente · agua
+      </a>
+</p>
+</div>
+<div class="card">
+<h3>
+      ◉ Fuentes y alcance
+     </h3>
+<p>
+<b>
+       Mapa:
+      </b>
+      ilustración generada para el prototipo.
+      <br/>
+<b>
+       Ríos y zonas:
+      </b>
+      geometrías esquemáticas interactivas.
+      <br/>
+<b>
+       NASA POWER:
+      </b>
+      consulta real opcional, separada de la simulación.
+      <br/>
+<b>
+       GPM, aforos y DEM:
+      </b>
+      pendientes de integración espacial.
+      <br/>
+<b>
+       OSM:
+      </b>
+      inventario real opcional de nombres de ríos.
+     </p>
+</div>
+<section class="case-study" id="historicalCase"><h3>◈ Caso real · Inundación 2015–2016</h3><p class="tiny">Reconstrucción documental con registros publicados por SINAE. Las cifras son observaciones de diferentes fechas, <b>no una interpolación diaria ni un mapa satelital de agua detectada</b>.</p><div class="case-controls"><button type="button" data-case="0" class="active">21 dic 2015</button><button type="button" data-case="1">22 dic 2015</button><button type="button" data-case="2">2 ene 2016</button></div><div id="caseDate" style="font-size:13px;font-weight:700;margin:8px 0">21 diciembre 2015</div><div class="case-observed"><div><small>Personas desplazadas reportadas</small><b id="caseCount">954</b></div><div><small>Tipo de evidencia</small><b style="font-size:14px" id="caseEvidence">SINAE · parte diario</b></div></div><div class="case-bar"><div id="caseBar" style="width:4%"></div></div><div id="caseLocations"></div><p class="case-note" id="caseCaveat"></p><p class="case-source">Fuente: <a id="caseSource" href="https://www.gub.uy/presidencia/comunicacion/noticias/hay-954-personas-desplazadas-inundaciones-litoral-norte-del-rio-uruguay" target="_blank" rel="noopener">SINAE / Presidencia de Uruguay ↗</a></p><div class="case-controls"><button type="button" id="caseNASA">Consultar lluvia NASA del evento</button><button type="button" id="caseGIBS">Preparar imagen NASA GIBS</button></div><p class="tiny" id="caseActionStatus">Las imágenes NASA se consultan bajo demanda y no constituyen por sí solas un mapa de inundación validado.</p></section>
+</aside>
+</div>
+<footer>
+<div class="footerbox">
+<span>
+     PRECIPITACIÓN · ESCENARIO
+    </span>
+<b id="footRain">
+     112 mm
+    </b>
+</div>
+<div class="footerbox">
+<span>
+     NIVEL FLUVIAL · ÍNDICE
+    </span>
+<b id="footFlow">
+     64 / 100
+    </b>
+</div>
+<div class="footerbox">
+<span>
+     ALMACENAMIENTO TEÓRICO
+    </span>
+<b id="footVolume">
+     5,00 hm³
+    </b>
+</div>
+<div class="footerbox">
+<span>
+     RIESGO SIMULADO
+    </span>
+<b class="status" id="footRisk">
+     Moderado
+    </b>
+</div>
+<div class="footerbox">
+<span>
+     ESTADO DEL SISTEMA
+    </span>
+<b>
+     Prototipo local
+    </b>
+</div>
+</footer>
+<script>
+   const rivers={uruguay:['Río Uruguay','Río internacional con cabeceras en Brasil y afluentes de Brasil y Argentina. Trazado visual aproximado.'],negro:['Río Negro','Nace en Brasil y atraviesa Uruguay. Recorrido esquemático.'],cuareim:['Río Cuareim · Quaraí','Cuenca compartida entre Uruguay y Brasil; piloto de investigación. Trazado visual aproximado.'],yi:['Río Yí','Afluente del río Negro, dentro de Uruguay. Recorrido esquemático.'],santalucia:['Río Santa Lucía','Sistema importante para el abastecimiento del sur de Uruguay. Recorrido esquemático.'],cebollati:['Río Cebollatí','Sistema hidrográfico del este de Uruguay hacia la laguna Merín. Recorrido esquemático.'],afluentes:['Afluentes ilustrativos','Conexiones ficticias para demostrar la interacción; no representan una red hidrográfica oficial.']};
+const layers=[['basinLayer','Cuenca piloto',true],['floodLayer','Zonas inundables',true],['citiesLayer','Ciudades principales',true]];
+const layerBox=document.getElementById('layers');layers.forEach(([id,name,on])=>{const row=document.createElement('div');row.className='layer';const cb=document.createElement('input');cb.type='checkbox';cb.checked=on;cb.onchange=()=>{document.getElementById(id).classList.toggle('hidden',!cb.checked);document.getElementById('mapInfo').textContent=name+(cb.checked?' activada':' desactivada')+' · escenario ilustrativo'};const label=document.createElement('label');label.textContent=name;label.onclick=()=>cb.click();row.append(cb,label);layerBox.append(row);document.getElementById(id).classList.toggle('hidden',!on)});
+let active='cuareim';const riverBox=document.getElementById('rivers');Object.entries(rivers).forEach(([key,[name]])=>{let b=document.createElement('button');b.className='btn';b.textContent=name;b.dataset.river=key;b.onclick=()=>selectRiver(key);riverBox.append(b)});
+function selectRiver(key){active=key;document.getElementById('riverTitle').textContent=rivers[key][0];document.getElementById('riverDescription').textContent=rivers[key][1];document.querySelectorAll('.river').forEach(el=>el.classList.toggle('active',el.dataset.river===key));document.querySelectorAll('[data-river].btn').forEach(el=>el.classList.toggle('selected',el.dataset.river===key));document.getElementById('mapInfo').textContent=rivers[key][0]+' · recorrido ilustrativo'}
+document.querySelectorAll('.river').forEach(el=>el.addEventListener('click',()=>selectRiver(el.dataset.river)));selectRiver('cuareim');
+const synthetic=Array.from({length:36},(_,i)=>Math.round(75+55*Math.sin(i*1.42)+42*Math.sin(i*.52+1)+((i*7)%37)));const flows=synthetic.map((v,i)=>Math.max(0,Math.min(100,Math.round(v*.36+18+12*Math.sin(i*.55)))));let nasa=null,idx=0,timer=null;
+const nationalZones = [["Artigas / Cuareim", 0, 62, 26], ["Salto / Uruguay", 0, 57, 29], ["Paysandú / Uruguay", 0, 59, 27], ["Mercedes / Soriano", 0, 59, 26], ["Durazno / Yí", 0, 61, 29], ["Paso de los Toros", 0, 49, 22], ["Treinta y Tres / Olimar", 0, 62, 29], ["Rocha / Laguna Merín", 0, 62, 32], ["Santa Lucía", 0, 53, 25]];
+const zoneEnabled = new Set(nationalZones.map((_,i)=>i));
+function scenarioFor(i,z){
+ const r=synthetic[i],season=Math.sin((i%12)/12*Math.PI*2+z*.61),storm=Math.max(0,Math.sin(i*.81+z*1.37));
+ const wet=Math.max(0,Math.min(1,(r-52)/180*.60+storm*.30+season*.10));
+ return wet;
+}
+function scenarioArea(i){return nationalZones.reduce((a,z,k)=>a+(zoneEnabled.has(k)?Math.PI*z[2]*z[3]*.042*scenarioFor(i,k)**1.6:0),0)}
+function renderChart(){
+ const vals=nasa?nasa.map(r=>r.mm_day):synthetic;
+ const max=Math.max(...vals,1)*1.1,w=320,h=155;
+ const areas=Array.from({length:36},(_,i)=>scenarioArea(i)), maxArea=Math.max(...areas,1)*1.08;
+ const bars=vals.map((v,i)=>`<rect x="${(i+.14)*w/36}" y="${h-12-v/max*126}" width="${w/36*.62}" height="${v/max*126}" fill="${i===idx?'#fef29a':i<idx?'#30d9ff':'#225267'}" opacity="${i<=idx?1:.45}"/>`).join('');
+ const areaLine=areas.slice(0,idx+1).map((v,i)=>`${(i+.45)*w/36},${h-12-v/maxArea*126}`).join(' ');
+ const marker=`<line x1="${(idx+.45)*w/36}" y1="0" x2="${(idx+.45)*w/36}" y2="155" stroke="#fff4ac" stroke-width="1.7" stroke-dasharray="4 3"/>`;
+ document.getElementById('chart').innerHTML=`<g stroke="#23465c" opacity=".6"><path d="M0 30H320 M0 70H320 M0 110H320 M0 143H320"/></g>${bars}<polyline points="${areaLine}" fill="none" stroke="#ff628f" stroke-width="3.4" stroke-linejoin="round"/>${marker}`;
+ const total=areas[idx],depth=.2+1.3*Math.min(1,total/650);
+ document.getElementById('floodChart').innerHTML=`<g stroke="#23465c"><path d="M0 35H320 M0 80H320 M0 126H320"/></g><path d="${areas.slice(0,idx+1).map((v,i)=>`${i?'L':'M'}${(i+.45)*320/36} ${144-v/maxArea*130}`).join(' ')}" stroke="#ff688c" stroke-width="3.2" fill="none"/><line x1="${(idx+.45)*320/36}" y1="0" x2="${(idx+.45)*320/36}" y2="155" stroke="#ffe28b" stroke-dasharray="4 3"/>`;
+ document.getElementById('graphArea').textContent=total.toLocaleString('es-UY',{maximumFractionDigits:1})+' ha';
+ document.getElementById('graphVolume').textContent=Math.round(total*10000*depth).toLocaleString('es-UY')+' m³';
+}
+
+function renderLiveDashboard(){
+ const rainValues=nasa?nasa.map(x=>x?.mm_day||0):synthetic;
+ const areas=Array.from({length:36},(_,i)=>scenarioArea(i));
+ const maxR=Math.max(1,...rainValues),maxA=Math.max(1,...areas);
+ const w=440,h=110,dx=w/36;
+ const bars=rainValues.map((v,i)=>`<rect x="${i*dx+2}" y="${99-v/maxR*85}" width="${Math.max(3,dx-4)}" height="${v/maxR*85}" fill="${i===idx?'#fff0a4':i<idx?'#22d9ff':'#21546b'}" opacity="${i<=idx?1:.5}"/>`).join('');
+ const line=areas.slice(0,idx+1).map((v,i)=>`${i?'L':'M'}${(i+.5)*dx} ${99-v/maxA*85}`).join(' ');
+ const cursor=(idx+.5)*dx;
+ document.getElementById('liveGraph').innerHTML=`<path d="M0 99H440 M0 54H440 M0 14H440" stroke="#2a5164" fill="none"/>${bars}<path d="${line}" fill="none" stroke="#ff4f88" stroke-width="3.8" stroke-linejoin="round"/><line x1="${cursor}" x2="${cursor}" y1="0" y2="110" stroke="#fff5b0" stroke-dasharray="4 4" stroke-width="2"/>`;
+ const m=idx%12,y=2023+Math.floor(idx/12),a=areas[idx],depth=.2+1.3*Math.min(1,a/650);
+ document.getElementById('liveMonth').textContent=new Intl.DateTimeFormat('es-UY',{month:'short',year:'numeric'}).format(new Date(y,m,1)).toUpperCase();
+ document.getElementById('liveRain').textContent=(nasa?rainValues[idx].toFixed(1):rainValues[idx])+(nasa?' mm/d':' mm');
+ document.getElementById('liveArea').textContent=a.toFixed(0)+' ha';
+ document.getElementById('liveVolume').textContent=(a*10000*depth/1e6).toFixed(2)+' M m³';
+ document.getElementById('liveCount').textContent=zoneEnabled.size+' zonas';
+ document.getElementById('mapScrub').value=idx;
+ document.getElementById('mapDate').textContent=new Intl.DateTimeFormat('es-UY',{month:'short',year:'numeric'}).format(new Date(y,m,1));
+ document.getElementById('mapPlay').textContent=timer?'Ⅱ Pausar':'▶ Reproducir';
+}
+
+function updateTime(){
+ if(idx>=36){renderProjectionTime();return;}
+ const month=idx%12,year=2023+Math.floor(idx/12);
+ document.getElementById('dateLabel').textContent=new Intl.DateTimeFormat('es-UY',{month:'long',year:'numeric'}).format(new Date(year,month,1))+(nasa?' · NASA POWER (Artigas)':' · Simulación nacional');
+ const rain=nasa?nasa[idx]?.mm_day:synthetic[idx],flow=flows[idx];
+ let areaHa=0;
+ document.querySelectorAll('.floodzone').forEach((group,i)=>{
+  const z=nationalZones[i],wet=scenarioFor(idx,i),enabled=zoneEnabled.has(i);
+  const k=.12+.88*wet,ellipse=group.querySelector('.flood'),core=group.querySelector('.floodcore');
+  group.classList.toggle('hidden',!enabled);
+  ellipse.setAttribute('rx',(z[2]*k).toFixed(1));ellipse.setAttribute('ry',(z[3]*k).toFixed(1));
+  core.setAttribute('rx',(z[2]*.66*k).toFixed(1));core.setAttribute('ry',(z[3]*.63*k).toFixed(1));
+  group.style.opacity=String(.24+.76*wet);
+  if(enabled)areaHa+=Math.PI*z[2]*z[3]*.042*wet**1.6;
+ });
+ const depth=.2+1.3*Math.min(1,areaHa/650),volume=areaHa*10000*depth;
+ const rainRatio=nasa?Math.min(1,Math.max(0,(rain||0)/12)):Math.min(1,Math.max(0,rain/220));
+ document.querySelectorAll('#rainLayer .storm').forEach((el,i)=>{const x=[390,625,750][i]||390,y=[255,410,520][i]||255;const k=.65+rainRatio*.65;el.setAttribute('transform',`translate(${x} ${y}) scale(${k.toFixed(2)})`);el.style.opacity=String(.40+.60*rainRatio);el.querySelector('.cloudshape')?.setAttribute('fill',`rgb(${Math.round(155-120*rainRatio)},${Math.round(172-130*rainRatio)},${Math.round(193-140*rainRatio)})`);el.querySelector('.cloudshape')?.style.setProperty('fill',`rgb(${Math.round(155-120*rainRatio)},${Math.round(172-130*rainRatio)},${Math.round(193-140*rainRatio)})`)});
+ document.getElementById('rainValue').textContent=nasa?rain?.toFixed(2):rain;
+ document.getElementById('flowValue').textContent=flow;
+ document.getElementById('footRain').textContent=nasa?`${rain?.toFixed(2)} mm/día`:`${rain} mm`;
+ document.getElementById('footFlow').textContent=`${flow} / 100`;
+ const risk=areaHa>420?'Alto':areaHa>170?'Moderado':'Bajo';
+ document.getElementById('footRisk').textContent=risk;
+ document.getElementById('floodArea').textContent=areaHa.toLocaleString('es-UY',{maximumFractionDigits:1});
+ document.getElementById('floodVolume').textContent=Math.round(volume).toLocaleString('es-UY');
+ document.getElementById('rainIntensity').textContent=nasa?`${rain?.toFixed(2)} mm/día`:`${rain} mm/mes`;
+ document.getElementById('scenarioState').textContent=risk;
+ document.getElementById('chartDetail').textContent=nasa?'Barras: NASA POWER (mm/día en Artigas). Línea rosa: superficie inundada SIMULADA en zonas seleccionadas. No es un pronóstico.':'Barras: lluvia SIMULADA (mm/mes). Línea rosa: superficie inundada SIMULADA (ha). El gráfico avanza con la fecha.';
+ document.getElementById('selectedZones').textContent=zoneEnabled.size+' / '+nationalZones.length+' zonas activas';
+ renderChart();
+ renderLiveDashboard();
+ renderMonthlyReport();
+}
+
+const zoneList=document.getElementById('zoneChecks');
+function drawZones(){zoneList.replaceChildren();nationalZones.forEach((z,i)=>{const label=document.createElement('label');label.className='zoneOption';const cb=document.createElement('input');cb.type='checkbox';cb.checked=zoneEnabled.has(i);cb.onchange=()=>{if(cb.checked)zoneEnabled.add(i);else zoneEnabled.delete(i);updateTime()};label.append(cb,document.createTextNode(' '+z[0]));zoneList.append(label)})}
+document.getElementById('zonesAll').onclick=()=>{nationalZones.forEach((_,i)=>zoneEnabled.add(i));drawZones();updateTime()};
+document.getElementById('zonesNone').onclick=()=>{zoneEnabled.clear();drawZones();updateTime()};drawZones();
+document.getElementById('mapPlay').onclick=()=>document.getElementById('play').click();document.getElementById('mapScrub').oninput=e=>{idx=Number(e.target.value);document.getElementById('month').value=idx;updateTime()};
+document.getElementById('month').oninput=e=>{idx=+e.target.value;updateTime()};document.getElementById('play').onclick=()=>{if(timer){clearInterval(timer);timer=null;document.getElementById('play').textContent='▶';return}if(idx>=playEnd()){idx=playStart();document.getElementById('month').value=idx;updateTime()}document.getElementById('play').textContent='Ⅱ';timer=setInterval(()=>{idx=idx>=playEnd()?playStart():idx+1;document.getElementById('month').value=idx;updateTime()},Number(document.getElementById('speed').value))};document.getElementById('speed').onchange=()=>{if(timer){clearInterval(timer);timer=null;document.getElementById('play').textContent='▶';document.getElementById('play').click()}};document.getElementById('resetTime').onclick=()=>{idx=playStart();document.getElementById('month').value=idx;updateTime()};
+function storage(){let a=+document.getElementById('area').value,d=+document.getElementById('depth').value;let v=a*d*.01;document.getElementById('areaText').textContent=a+' ha';document.getElementById('depthText').textContent=d+' m';document.getElementById('volume').textContent=v.toLocaleString('es-UY',{minimumFractionDigits:2,maximumFractionDigits:2})+' hm³';document.getElementById('footVolume').textContent=document.getElementById('volume').textContent}['area','depth'].forEach(id=>document.getElementById(id).oninput=storage);storage();
+document.getElementById('nasaBtn').onclick=async()=>{const btn=document.getElementById('nasaBtn');btn.disabled=true;btn.textContent='Consultando NASA…';document.getElementById('nasaStatus').textContent='Consultando el servicio NASA POWER…';try{const res=await fetch('/api/nasa/power');const data=await res.json();if(!res.ok||!data.ok)throw Error(data.error||'Servicio no disponible');const byMonth=new Map(data.records.map(r=>[r.month,r]));const series=Array.from({length:36},(_,i)=>byMonth.get(`${2023+Math.floor(i/12)}${String(i%12+1).padStart(2,'0')}`));if(series.some(v=>!v))throw Error('NASA no devolvió los 36 meses completos');nasa=series;document.getElementById('sourcePower').textContent='Conectado · 36 meses (2023–2025)';document.getElementById('chartSource').textContent='NASA POWER · dato real · promedio mensual de mm/día';document.getElementById('nasaStatus').textContent='Conectado: NASA POWER, punto Artigas. NO representa toda la cuenca.';document.getElementById('demoBtn').classList.remove('hidden');updateTime()}catch(e){document.getElementById('nasaStatus').textContent='No se pudo consultar NASA: '+e.message+'. El modo simulado sigue disponible.'}finally{btn.disabled=false;btn.textContent='◉ Consultar NASA POWER online'}};
+document.getElementById('demoBtn').onclick=()=>{nasa=null;document.getElementById('chartSource').textContent='Serie mensual simulada · 2023–2025';document.getElementById('nasaStatus').textContent='Modo simulado. NASA POWER opcional.';document.getElementById('demoBtn').classList.add('hidden');updateTime()};
+let scale=1.065;function zoom(){document.getElementById('mapstage').style.transform=`scale(${scale})`}document.getElementById('zoomIn').onclick=()=>{scale=Math.min(1.7,scale+.1);zoom()};document.getElementById('zoomOut').onclick=()=>{scale=Math.max(.8,scale-.1);zoom()};document.getElementById('resetMap').onclick=()=>{scale=1.065;zoom()};document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-nav]').forEach(el=>el.classList.toggle('active',el===b));let key=b.dataset.nav;if(key==='Cuencas'){document.getElementById('basinLayer').classList.remove('hidden')}if(key==='Hidrología'){document.getElementById('rainLayer').classList.remove('hidden')}if(key==='Datos NASA'){document.getElementById('nasaBtn').scrollIntoView({behavior:'smooth',block:'center'})}if(key==='Simulador'){document.getElementById('area').scrollIntoView({behavior:'smooth',block:'center'})}});updateTime();
+document.getElementById('hydroBtn').onclick=async()=>{const b=document.getElementById('hydroBtn'),st=document.getElementById('hydroStatus'),box=document.getElementById('hydroNames');b.disabled=true;st.textContent='Consultando OpenStreetMap…';box.replaceChildren();try{const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),27000);let r;try{r=await fetch('/api/hydro/osm',{signal:ctrl.signal})}finally{clearTimeout(timer)}const d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||'Servicio no disponible');document.getElementById('sourceOsm').textContent=`${d.count_segments} segmentos · OSM`;st.textContent=`DATOS REALES · ${d.count_segments} segmentos OSM encontrados · ${d.names.length} nombres únicos mostrados`;for(const name of d.names){const chip=document.createElement('span');chip.textContent=name;box.append(chip)}if(!d.names.length)st.textContent+=' · sin nombres en esta consulta'}catch(e){st.textContent='No se pudo conectar: '+e.message+'. El mapa simulado sigue funcionando.'}finally{b.disabled=false}};
+
+// v2.0: genuine data stays separate from the artistic 3D prototype.
+const geoSvg=document.getElementById('geoSvg'),geoStatus=document.getElementById('geoStatus');
+const geoBounds={west:-59,east:-50,south:-35.5,north:-26};
+function coordToSvg(c){const x=(c[0]-geoBounds.west)/(geoBounds.east-geoBounds.west)*450,y=(geoBounds.north-c[1])/(geoBounds.north-geoBounds.south)*400;return [x,y]}
+function ringPath(ring){return ring.map((p,i)=>{if(!Array.isArray(p)||p.length<2||!Number.isFinite(+p[0])||!Number.isFinite(+p[1]))throw Error('Coordenada inválida');const [x,y]=coordToSvg(p);return `${i?'L':'M'}${x.toFixed(2)} ${y.toFixed(2)}`}).join(' ')+' Z'}
+document.getElementById('floodGeo').addEventListener('change',async e=>{geoSvg.replaceChildren();const file=e.target.files?.[0];if(!file)return;try{if(file.size>6e6)throw Error('Archivo mayor de 6 MB');const data=JSON.parse(await file.text());const features=data.type==='FeatureCollection'?data.features:data.type==='Feature'?[data]:[{geometry:data,properties:{}}];if(!Array.isArray(features)||features.length>3000)throw Error('Demasiadas geometrías');let polygons=0;for(const f of features){const g=f.geometry;if(!g)continue;const poly=g.type==='Polygon'?[g.coordinates]:g.type==='MultiPolygon'?g.coordinates:[];for(const p of poly){if(polygons++>1000)throw Error('Demasiados polígonos');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',p.map(ringPath).join(' '));path.setAttribute('fill-rule','evenodd');const title=document.createElementNS('http://www.w3.org/2000/svg','title');title.textContent=String(f.properties?.nombre||f.properties?.name||'Polígono importado');path.append(title);geoSvg.append(path)}}geoStatus.textContent=`GeoJSON local cargado: ${polygons} polígonos. Fuente NO verificada automáticamente: comprueba el origen, fecha y sistema de coordenadas.`}catch(err){geoSvg.replaceChildren();geoStatus.textContent='No se pudo interpretar GeoJSON: '+err.message}});
+let discovered=[];const gibStatus=document.getElementById('gibsStatus'),gibSelect=document.getElementById('gibsLayer');
+document.getElementById('gibsDiscover').onclick=async()=>{gibStatus.textContent='Consultando catálogo de NASA GIBS…';try{const r=await fetch('/api/gibs/layers');const d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||'Error del servicio');discovered=d.layers;gibSelect.replaceChildren();for(const layer of discovered){const opt=document.createElement('option');opt.value=layer.id;opt.textContent=layer.title+' · '+layer.id;gibSelect.append(opt)}gibStatus.textContent=discovered.length?`${discovered.length} capas candidatas encontradas. Selecciona una y una fecha.`:'NASA GIBS no anuncia capas de precipitación en este catálogo; no se mostrará una imagen ficticia.'}catch(e){gibStatus.textContent='No fue posible consultar GIBS: '+e.message}};
+document.getElementById('gibsLoad').onclick=async()=>{const layer=gibSelect.value,date=document.getElementById('gibsDate').value,img=document.getElementById('gibsImage');if(!discovered.some(l=>l.id===layer)||!date){gibStatus.textContent='Selecciona una capa descubierta y una fecha';return}gibStatus.textContent='Descargando imagen NASA…';img.style.display='none';try{const r=await fetch('/api/gibs/map?'+new URLSearchParams({layer,date}));if(!r.ok){const d=await r.json();throw Error(d.error||'Error NASA')}const blob=await r.blob();if(blob.type!=='image/png')throw Error('Respuesta no es PNG');if(img.dataset.url)URL.revokeObjectURL(img.dataset.url);img.dataset.url=URL.createObjectURL(blob);img.src=img.dataset.url;await img.decode();img.style.display='block';document.getElementById('sourceGibs').textContent=`Imagen ${date} · ${layer}`;gibStatus.textContent=`IMAGEN REAL NASA GIBS · ${layer} · ${date}. Revisa la leyenda y unidades del producto en NASA; no equivale a riesgo de inundación.`}catch(e){gibStatus.textContent='Sin imagen disponible: '+e.message}};
+
+// Puente verificable para observaciones hidrométricas: datos CSV del usuario, no API oficial.
+let stationRecords=null, stationByMonth=new Map(), stationLabel='';
+function updateStation(){
+ const key=`${2023+Math.floor(idx/12)}${String(idx%12+1).padStart(2,'0')}`;
+ const rows=stationByMonth.get(key)||[];
+ const avg=(field)=>{const vals=rows.map(r=>r[field]).filter(Number.isFinite);return vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null};
+ const level=avg('level_m'),flow=avg('flow_m3s');
+ document.getElementById('stationLevel').textContent=level===null?'—':level.toFixed(2);
+ document.getElementById('stationFlow').textContent=flow===null?'—':flow.toFixed(1);
+ const series=Array.from({length:36},(_,i)=>{const k=`${2023+Math.floor(i/12)}${String(i%12+1).padStart(2,'0')}`;const v=(stationByMonth.get(k)||[]).map(r=>r.level_m).filter(Number.isFinite);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null});
+ const valid=series.filter(Number.isFinite),svg=document.getElementById('stationChart');
+ if(!valid.length){svg.replaceChildren();return}
+ const lo=Math.min(...valid),hi=Math.max(...valid),range=Math.max(.01,hi-lo);
+ const points=series.map((v,i)=>Number.isFinite(v)?[(i+.5)*300/36,102-(v-lo)/range*88]:null);
+ let d='';points.forEach(p=>{if(!p){d+=' ';return}d+=(d.trim()&& !d.endsWith(' ')?' L':' M')+p[0].toFixed(1)+' '+p[1].toFixed(1)});
+ svg.innerHTML=`<g stroke="#24526a"><path d="M0 15H300 M0 58H300 M0 102H300"/></g><path d="${d}" fill="none" stroke="#71f7b4" stroke-width="2.8"/><line x1="${(idx+.5)*300/36}" y1="0" x2="${(idx+.5)*300/36}" y2="115" stroke="#ffdc80" stroke-dasharray="3 3"/>`;
+}
+const originalUpdateTime=updateTime;updateTime=function(){originalUpdateTime();updateStation()};
+document.getElementById('stationLoad').onclick=async()=>{
+ const f=document.getElementById('stationFile').files[0], status=document.getElementById('stationStatus');
+ if(!f){status.textContent='Selecciona un archivo CSV.';return}
+ status.textContent='Validando CSV…';
+ try{const r=await fetch('/api/stations/import',{method:'POST',headers:{'Content-Type':'text/csv'},body:await f.text()});const d=await r.json();if(!r.ok||!d.ok)throw Error(d.error||'Error');stationRecords=d.records;stationByMonth=new Map();for(const rec of stationRecords){if(!stationByMonth.has(rec.month))stationByMonth.set(rec.month,[]);stationByMonth.get(rec.month).push(rec)}
+ stationLabel=document.getElementById('stationSource').value.trim()||'Fuente no declarada';
+ status.textContent=`${d.count} observaciones importadas · ${d.min_date} a ${d.max_date}. Origen no validado automáticamente.`;
+ document.getElementById('stationProvenance').textContent='Fuente declarada: '+stationLabel+' · Los niveles y caudales son observaciones importadas; el área inundada sigue siendo simulada.';
+ updateStation();}catch(e){status.textContent='No se pudo importar: '+e.message}
+};
+document.getElementById('stationClear').onclick=()=>{stationRecords=null;stationByMonth=new Map();document.getElementById('stationStatus').textContent='Sin mediciones cargadas.';document.getElementById('stationProvenance').textContent='No hay observaciones activas.';updateStation()};
+updateStation();
+
+// v2.5 monthly zone reporting, based only on the explicitly labeled synthetic scenario
+function renderMonthlyReport(){
+ const host=document.getElementById('monthZoneReport');if(!host)return;
+ const rows=nationalZones.map((z,i)=>({name:z[0],area:zoneEnabled.has(i)?Math.PI*z[2]*z[3]*.042*Math.pow(scenarioFor(idx,i),1.6):0,enabled:zoneEnabled.has(i)})).filter(x=>x.enabled).sort((a,b)=>b.area-a.area);
+ const max=Math.max(1,...rows.map(x=>x.area));
+ host.innerHTML=rows.length?rows.map(x=>`<div class="zoneReportRow"><div>${x.name}<div class="bar"><i style="width:${(x.area/max*100).toFixed(1)}%"></i></div></div><strong>${x.area.toFixed(1)} ha</strong><em>${x.area>=25?'Alta':x.area>=10?'Media':'Baja'}</em></div>`).join(''):'<p class="tiny">No hay zonas seleccionadas.</p>';
+ document.getElementById('reportPeriod').textContent=`${new Date(2023+Math.floor(idx/12),idx%12,1).toLocaleDateString('es-UY',{month:'long',year:'numeric'})} · Superficies hipotéticas, no mediciones.`;
+}
+// Historical CSV rows must have: zona,ano,mes,area_ha. No invented official observations.
+let forecastObservations=null, forecastMode='none';
+const zoneKey=x=>String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
+// Regularized least squares on standardized predictors: year trend, current and previous rainfall.
+// Avoids ill-conditioned fits; diagnostics explicitly expose clipping and missing information.
+function solveSystem(A,b){
+ const n=b.length,M=A.map((r,i)=>[...r,b[i]]);
+ for(let k=0;k<n;k++){let pivot=k;for(let i=k+1;i<n;i++)if(Math.abs(M[i][k])>Math.abs(M[pivot][k]))pivot=i;
+  if(Math.abs(M[pivot][k])<1e-9)return null;[M[k],M[pivot]]=[M[pivot],M[k]];
+  const d=M[k][k];for(let j=k;j<=n;j++)M[k][j]/=d;
+  for(let i=0;i<n;i++)if(i!==k){const f=M[i][k];for(let j=k;j<=n;j++)M[i][j]-=f*M[k][j]}}
+ return M.map(r=>r[n]);
+}
+function rainScenario(year,month,zone){
+ // Explicitly illustrative future rain: repeating seasonal template, never NASA observations.
+ const base=synthetic[(month-1+24)%36];return Math.max(0,base*(1+.06*Math.sin(zone*1.7+year-2025)));
+}
+function ols(rows,targetYear,targetMonth,zone){
+ const obs=rows.filter(r=>Number.isFinite(r.area));
+ if(obs.length<3||new Set(obs.map(r=>r.year)).size<3)return null;
+ const withRain=obs.filter(r=>Number.isFinite(r.rain));
+ const useRain=withRain.length>=18&&new Set(withRain.map(r=>r.year)).size>=3;
+ const fitRows=useRain?withRain:obs;
+ const n=fitRows.length, features=r=>useRain?[1,(r.year-2024)/3,(r.rain-100)/100,((Number.isFinite(r.prevRain)?r.prevRain:r.rain)-100)/100,Math.sin(2*Math.PI*(r.month-1)/12),Math.cos(2*Math.PI*(r.month-1)/12)]:[1,(r.year-2024)/3,Math.sin(2*Math.PI*(r.month-1)/12),Math.cos(2*Math.PI*(r.month-1)/12)];
+ const k=useRain?6:4,A=Array.from({length:k},()=>Array(k).fill(0)),b=Array(k).fill(0);
+ for(const r of fitRows){const x=features(r);for(let i=0;i<k;i++){b[i]+=x[i]*r.area;for(let j=0;j<k;j++)A[i][j]+=x[i]*x[j]}}
+ for(let i=1;i<k;i++)A[i][i]+=.3; // ridge regularization (no penalty on intercept)
+ const beta=solveSystem(A,b);if(!beta)return null;
+ const rain=rainScenario(targetYear,targetMonth,zone),prevRain=rainScenario(targetYear,targetMonth===1?12:targetMonth-1,zone);
+ const x=features({year:targetYear,month:targetMonth,rain,prevRain}),raw=beta.reduce((sum,v,i)=>sum+v*x[i],0);
+ const fitted=fitRows.map(r=>beta.reduce((sum,v,i)=>sum+v*features(r)[i],0));
+ const mae=fitRows.reduce((sum,r,i)=>sum+Math.abs(r.area-fitted[i]),0)/n;
+ return {area:Math.max(0,raw),raw,clipped:raw<0,method:useRain?'Regresión múltiple con lluvia':'Regresión temporal sin lluvia',rain,mae,n};
+}
+let forecastExport=[];
+function drawForecast(){
+ const host=document.getElementById('forecastResults'),monthly=document.getElementById('forecastMonthly'),year=Number(document.getElementById('forecastYear').value);
+ if(!forecastObservations){host.innerHTML='<p class="tiny">Carga un histórico o utiliza la demostración.</p>';monthly.innerHTML='';forecastExport=[];return;}
+ const rows=nationalZones.map(z=>{
+  const months=Array.from({length:12},(_,i)=>{
+   const m=i+1, observed=forecastObservations.filter(r=>r.zone===zoneKey(z[0])&&r.year<year);
+   return {month:m,fit:ols(observed,year,m,nationalZones.indexOf(z))};
+  });
+  months.forEach(m=>m.area=m.fit?.area??null);
+  const valid=months.filter(m=>m.area!==null);
+  return {name:z[0],months,peak:valid.length?Math.max(...valid.map(m=>m.area)):null,peakMonth:valid.length?valid.reduce((a,b)=>b.area>a.area?b:a).month:null};
+ }).sort((a,b)=>(b.peak??-1)-(a.peak??-1));
+ forecastExport=rows.flatMap(r=>r.months.filter(m=>m.fit!==null).map(m=>({zone:r.name,year,month:m.month,area:m.fit.area,raw:m.fit.raw,clipped:m.fit.clipped,method:m.fit.method,mae:m.fit.mae})));
+ const clippedCount=forecastExport.filter(r=>r.clipped).length;document.getElementById("modelDiagnostics").textContent=`${forecastMode==='demo'?'DATOS SINTÉTICOS':'CSV NO VERIFICADO'} · ${forecastExport.length} estimaciones · ${clippedCount} valores negativos ajustados a 0 · MAE de ajuste (no validación): ${forecastExport.length?(forecastExport.reduce((a,r)=>a+r.mae,0)/forecastExport.length).toFixed(1):'—'} ha. Lluvia futura: escenario ilustrativo. Un 0 ajustado NO significa ausencia de riesgo.`;
+ host.innerHTML='<p class="tiny"><b>PROYECCIÓN '+year+'</b> · '+(forecastMode==='demo'?'DATOS SINTÉTICOS (NO PRONÓSTICO REAL)':'CSV aportado (origen no verificado)')+'</p>'+rows.map(r=>`<div class="forecastRow"><span>${r.name}<br><small>${r.peakMonth?'Máximo en mes '+r.peakMonth:'Histórico insuficiente'}</small></span><b>${r.peak===null?'Sin datos':r.peak.toFixed(1)+' ha'}</b></div>`).join('');
+ const monthNames=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+ monthly.innerHTML='<h4 style="color:#49e8f4;margin:6px 0">Predicción mensual '+year+'</h4><p class="tiny">Área estimada en hectáreas. Desliza horizontalmente para consultar los 12 meses.</p><div style="overflow-x:auto"><table style="border-collapse:collapse;font-size:10px;white-space:nowrap"><thead><tr><th style="padding:5px">Zona</th>'+monthNames.map(m=>'<th style="padding:5px">'+m+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr><td style="padding:5px;border-bottom:1px solid #22536b">'+r.name+'</td>'+r.months.map(m=>'<td style="padding:5px;border-bottom:1px solid #22536b;color:'+(m.area!==null&&m.area>25?'#ff647b':'#e3f7ff')+'">'+(m.area===null?'—':m.fit.clipped?'0†':m.area.toFixed(0))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+ document.getElementById('forecastStatus').textContent=(forecastMode==='demo'?'DEMOSTRACIÓN: regresión con histórico sintético 2023–2025. NO es predicción real.':'Histórico CSV aportado, origen no verificado.')+' Proyección '+year+' mediante regresión regularizada; † indica valor negativo ajustado a cero.';
+}
+document.getElementById('demoForecast').onclick=()=>{
+ forecastObservations=[];for(let year=2023;year<=2025;year++)for(let month=1;month<=12;month++)nationalZones.forEach((z,i)=>forecastObservations.push({zone:zoneKey(z[0]),year,month,area:Math.PI*z[2]*z[3]*.042*Math.pow(scenarioFor((year-2023)*12+month-1,i),1.6),rain:synthetic[(year-2023)*12+month-1],prevRain:synthetic[Math.max(0,(year-2023)*12+month-2)]}));
+ forecastMode='demo';drawForecast();
+};
+document.getElementById('clearForecast').onclick=()=>{forecastObservations=null;forecastMode='none';document.getElementById('forecastCsv').value='';document.getElementById('forecastStatus').textContent='Sin histórico real cargado.';drawForecast()};
+document.getElementById('forecastYear').onchange=()=>{drawForecast();const year=Number(document.getElementById('forecastYear').value);document.getElementById('playPeriod').value=String(year);setPeriod(year);};
+document.getElementById('forecastCsv').onchange=async e=>{
+ const file=e.target.files?.[0];if(!file)return;
+ try{
+  if(file.size>2e6)throw Error('CSV mayor a 2 MB');
+  const lines=(await file.text()).replace(/^\uFEFF/,'').trim().split(/\r?\n/);
+  if(lines.length>30000)throw Error('Demasiadas filas');
+  const delim=lines[0].includes(';')?';':',';
+  const hdr=lines.shift().split(delim).map(zoneKey),pos=names=>names.map(n=>hdr.indexOf(n)).find(n=>n>=0);
+  const zi=pos(['zona','zone']),yi=pos(['ano','year']),mi=pos(['mes','month']),ai=pos(['area_ha','superficie_ha']);
+  if([zi,yi,mi,ai].some(i=>i===undefined))throw Error('Se requieren columnas zona,ano,mes,area_ha');
+  const out=[];for(const line of lines){if(!line.trim())continue;const a=line.split(delim);const zone=zoneKey(a[zi]),year=Number(a[yi]),month=Number(a[mi]),area=Number(String(a[ai]).replace(',','.'));
+   if(!nationalZones.some(z=>zoneKey(z[0])===zone))continue;
+   if(!Number.isInteger(year)||year<1900||year>2025||!Number.isInteger(month)||month<1||month>12||!Number.isFinite(area)||area<0)continue;
+   const ri=pos(['lluvia_mm','precipitacion_mm']),li=pos(['nivel_m']);const rain=ri===undefined?null:Number(String(a[ri]).replace(',','.'));const level=li===undefined?null:Number(String(a[li]).replace(',','.'));out.push({zone,year,month,area,rain:Number.isFinite(rain)?rain:null,level:Number.isFinite(level)?level:null});}
+  if(out.length<3)throw Error('No hay suficientes filas válidas para las nueve zonas.');
+  const byKey=new Map(out.map(r=>[r.zone+'|'+r.year+'|'+r.month,r]));for(const r of out){const py=r.month===1?r.year-1:r.year,pm=r.month===1?12:r.month-1;const prev=byKey.get(r.zone+'|'+py+'|'+pm);r.prevRain=prev?.rain??null;}forecastObservations=out;forecastMode='csv';drawForecast();
+ }catch(err){document.getElementById('forecastStatus').textContent='Error CSV: '+err.message;forecastObservations=null;drawForecast()}
+};
+document.getElementById('downloadForecast').onclick=()=>{
+ if(!forecastExport.length){alert('No hay proyección disponible.');return;}
+ const csv='zona,ano,mes,area_ha,estimacion_sin_recorte_ha,ajustado_a_cero,metodo,mae_ajuste_ha\n'+forecastExport.map(r=>[r.zone,r.year,r.month,r.area.toFixed(3),r.raw.toFixed(3),r.clipped?'SI':'NO',r.method,r.mae.toFixed(3)].join(',')).join('\n');
+ const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='proyeccion_'+document.getElementById('forecastYear').value+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);
+};
+// Start with an explicit synthetic demonstration so 2026 and 2027 are visible immediately.
+document.getElementById('demoForecast').click();
+// preserve initial zoom even after full page initialization
+zoom();renderMonthlyReport();drawForecast();
+
+// v2.8: one playback for historical demo and 2026-2027 model projections.
+const periodSelect=document.getElementById('playPeriod');
+function playStart(){return periodSelect.value==='history'?0:periodSelect.value==='2026'?36:48}
+function playEnd(){return playStart()+(periodSelect.value==='history'?35:11)}
+function setPeriod(year){
+ if(timer){clearInterval(timer);timer=null;document.getElementById('play').textContent='▶';}
+ periodSelect.value=year==='history'?'history':String(year);document.getElementById('graphPeriod').value=periodSelect.value;
+ const start=playStart(),end=playEnd();
+ document.getElementById('mapScrub').min=start;document.getElementById('mapScrub').max=end;
+ document.getElementById('month').min=start;document.getElementById('month').max=end;
+ idx=start;document.getElementById('month').value=idx;document.getElementById('mapScrub').value=idx;
+ if(year!=='history')document.getElementById('forecastYear').value=String(year);
+ updateTime();
+}
+periodSelect.onchange=()=>setPeriod(periodSelect.value);
+document.getElementById('graphPeriod').onchange=e=>setPeriod(e.target.value);
+function projectionArea(year,month,zone){
+ if(!forecastObservations)return null;
+ const rows=forecastObservations.filter(r=>r.zone===zoneKey(nationalZones[zone][0])&&r.year<year);
+ return ols(rows,year,month,zone)?.area??null;
+}
+function projectionSeries(year){
+ return Array.from({length:12},(_,m)=>nationalZones.reduce((sum,z,i)=>{
+  if(!zoneEnabled.has(i))return sum;
+  const a=projectionArea(year,m+1,i);return sum+(a===null?0:a);
+ },0));
+}
+function renderProjectionTime(){
+ const year=2026+Math.floor((idx-36)/12),month=(idx-36)%12,areas=projectionSeries(year),area=areas[month];
+ const monthly=nationalZones.map((z,i)=>({name:z[0],area:zoneEnabled.has(i)?projectionArea(year,month+1,i):null,enabled:zoneEnabled.has(i)}));
+ const valid=monthly.filter(z=>z.enabled&&z.area!==null),max=Math.max(1,...valid.map(z=>z.area));
+ const hasData=valid.length>0,depth=.2+1.3*Math.min(1,area/650);
+ const date=new Intl.DateTimeFormat('es-UY',{month:'long',year:'numeric'}).format(new Date(year,month,1));
+ const status=forecastMode==='demo'?'PROYECCIÓN SINTÉTICA · NO ES PRONÓSTICO REAL':'PROYECCIÓN CSV · FUENTE SIN VERIFICAR';
+ document.getElementById('dateLabel').textContent=date+' · '+status;
+ document.getElementById('liveMonth').textContent=date.toUpperCase();
+ document.getElementById('mapDate').textContent=date;
+ document.getElementById('mapScrub').value=idx;
+ document.getElementById('mapPlay').textContent=timer?'Ⅱ Pausar':'▶ Reproducir';
+ // No future rainfall observations exist: display a clearly marked illustrative scenario.
+ const rainValueProjected=Math.round(rainScenario(year,month+1,0));
+ document.getElementById('liveRain').textContent=rainValueProjected+' mm*';
+ document.getElementById('liveArea').textContent=hasData?area.toFixed(1)+' ha':'Sin datos';
+ document.getElementById('liveVolume').textContent=hasData?(area*10000*depth/1e6).toFixed(2)+' M m³':'Sin datos';
+ document.getElementById('liveCount').textContent=zoneEnabled.size+' zonas';
+ document.getElementById('rainValue').textContent=rainValueProjected;
+ document.getElementById('rainIntensity').textContent=rainValueProjected+' mm/mes*';
+ document.getElementById('footRain').textContent=rainValueProjected+' mm*';
+ document.getElementById('footFlow').textContent='No proyectado';
+ document.getElementById('flowValue').textContent='—';
+ document.getElementById('footRisk').textContent='No validado';
+ document.getElementById('floodArea').textContent=hasData?area.toFixed(1):'—';
+ document.getElementById('floodVolume').textContent=hasData?Math.round(area*10000*depth).toLocaleString('es-UY'):'—';
+ document.getElementById('graphArea').textContent=hasData?area.toFixed(1)+' ha':'—';
+ document.getElementById('graphVolume').textContent=hasData?Math.round(area*10000*depth).toLocaleString('es-UY')+' m³':'—';
+ document.getElementById('scenarioState').textContent='Proyección no validada';
+ document.getElementById('selectedZones').textContent=zoneEnabled.size+' / '+nationalZones.length+' zonas activas';
+ document.querySelectorAll('.floodzone').forEach((g,i)=>{
+  const z=nationalZones[i],a=monthly[i].area,enabled=zoneEnabled.has(i)&&a!==null;
+  g.classList.toggle('hidden',!enabled);
+  if(!enabled)return;
+  const base=Math.PI*z[2]*z[3]*.042,wet=Math.max(.04,Math.min(1.6,Math.pow(Math.max(0,a)/Math.max(.001,base),1/1.6)));
+  const k=.12+.88*wet;
+  g.querySelector('.flood').setAttribute('rx',(z[2]*k).toFixed(1));
+  g.querySelector('.flood').setAttribute('ry',(z[3]*k).toFixed(1));
+  g.querySelector('.floodcore').setAttribute('rx',(z[2]*.66*k).toFixed(1));
+  g.querySelector('.floodcore').setAttribute('ry',(z[3]*.63*k).toFixed(1));
+  g.style.opacity=String(Math.min(1,.28+.72*wet));
+ });
+ const rainRatio=Math.min(1,rainValueProjected/220);
+ document.querySelectorAll('#rainLayer .storm').forEach((el,i)=>{const x=[390,625,750][i]||390,y=[255,410,520][i]||255;el.setAttribute('transform',`translate(${x} ${y}) scale(${(.65+rainRatio*.65).toFixed(2)})`);el.style.opacity=String(.2+.8*rainRatio)});
+ const maxA=Math.max(1,...areas),w=440,h=110,dx=w/12;
+ const bars=Array.from({length:12},(_,m)=>{const v=rainScenario(year,m+1,0);return `<rect x="${m*dx+4}" y="${99-v/240*85}" width="${dx-8}" height="${v/240*85}" fill="${m===month?'#fff0a4':'#32758a'}" opacity="${m<=month?1:.4}"/>`}).join('');
+ const line=areas.slice(0,month+1).map((v,m)=>`${m?'L':'M'}${(m+.5)*dx} ${99-v/maxA*85}`).join(' ');
+ document.getElementById('liveGraph').innerHTML=`<path d="M0 99H440 M0 54H440 M0 14H440" stroke="#2a5164" fill="none"/>${bars}<path d="${line}" fill="none" stroke="#ff355b" stroke-width="4"/><line x1="${(month+.5)*dx}" x2="${(month+.5)*dx}" y1="0" y2="110" stroke="#fff" stroke-dasharray="4 3"/>`;
+ const barSmall=Array.from({length:12},(_,m)=>{const v=rainScenario(year,m+1,0);return `<rect x="${(m+.1)*320/12}" y="${143-v/240*125}" width="${320/12*.7}" height="${v/240*125}" fill="${m<=month?'#30d9ff':'#225267'}"/>`}).join('');
+ const areaLine=areas.slice(0,month+1).map((v,m)=>`${(m+.5)*320/12},${143-v/maxA*125}`).join(' ');
+ document.getElementById('chart').innerHTML=barSmall+`<polyline points="${areaLine}" fill="none" stroke="#ff355b" stroke-width="4"/>`;
+ document.getElementById('floodChart').innerHTML=`<polyline points="${areaLine}" fill="none" stroke="#ff355b" stroke-width="4"/>`;
+ document.getElementById('chartDetail').textContent=status+' · *Barras de lluvia: escenario ilustrativo, NO predicción meteorológica. Línea roja: regresión lineal por zona; sin validación científica.';
+ const report=document.getElementById('monthZoneReport');
+ document.getElementById('reportPeriod').textContent=status+' · '+date;
+ if(report)report.innerHTML='<p class="tiny">'+status+' · '+date+'</p>'+valid.sort((a,b)=>b.area-a.area).map(z=>`<div class="zoneReportRow"><span>${z.name}<div class="bar"><i style="width:${100*z.area/max}%"></i></div></span><b>${z.area.toFixed(1)} ha</b><span>Est.</span></div>`).join('');
+}
+// Demonstration is explicitly identified; no prediction is claimed without real observations.
+document.getElementById('demoForecast').click();
+setPeriod('2026');
+
+
+// Panel de observaciones externas separado deliberadamente de la simulación.
+(()=>{const $=id=>document.getElementById(id);let rows=[];const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function plot(){let svg=$('obsChart');if(!rows.length){svg.innerHTML='<text x="12" y="30" fill="#9ac8d8" font-size="12">Sin datos NASA</text>';return}let years=[...new Set(rows.map(r=>r.mes.slice(0,4)))];let totals=years.map(y=>rows.filter(r=>r.mes.startsWith(y)).reduce((s,r)=>s+r.lluvia_mm,0));let mx=Math.max(1,...totals),dx=280/years.length;svg.innerHTML='<line x1="26" y1="128" x2="312" y2="128" stroke="#487487"/>'+totals.map((v,i)=>`<rect x="${(28+i*dx).toFixed(1)}" y="${(128-v/mx*103).toFixed(1)}" width="${(dx*.65).toFixed(1)}" height="${(v/mx*103).toFixed(1)}" fill="#27d8e7"><title>${years[i]}: ${v.toFixed(1)} mm</title></rect><text x="${(27+i*dx).toFixed(1)}" y="143" fill="#b6d6e3" font-size="8">${years[i].slice(2)}</text>`).join('')+'<text x="28" y="13" fill="#c1eaf1" font-size="10">Precipitación anual acumulada · mm</text>'}
+$('obsFetch').onclick=async()=>{let city=$('obsCity').value;rows=[];$('obsExport').disabled=true;$('obsMonths').textContent='—';$('obsAnnual').textContent='—';$('obsStatus').textContent='Consultando NASA POWER…';plot();$('obsFetch').disabled=true;try{let response=await fetch('/api/nasa/historical?zone='+encodeURIComponent(city),{cache:'no-store'}),d=await response.json();if(!response.ok||!d.ok)throw Error(d.error||'Error en NASA');if(!Array.isArray(d.records)||!d.records.length)throw Error('Sin registros válidos');rows=d.records.filter(r=>/^20\d{2}-(0[1-9]|1[0-2])$/.test(r.mes)&&Number.isFinite(Number(r.lluvia_mm))).map(r=>({mes:r.mes,lluvia_mm:Number(r.lluvia_mm)}));if(!rows.length)throw Error('No se recibieron meses válidos');$('obsMonths').textContent=rows.length;let years=new Set(rows.map(r=>r.mes.slice(0,4)));$('obsAnnual').textContent=Math.round(rows.reduce((s,r)=>s+r.lluvia_mm,0)/years.size).toLocaleString('es-UY');$('obsStatus').textContent='Consulta NASA completada: '+rows.length+' meses de precipitación para '+city+'.';$('obsSource').textContent='NASA POWER PRECTOTCORR · '+city+' ('+d.coordinates.lat+', '+d.coordinates.lon+') · 2018–2025 · datos descargados en esta sesión.';$('obsExport').disabled=false;plot()}catch(e){$('obsStatus').textContent='No se pudieron cargar observaciones reales: '+e.message;$('obsSource').textContent='No hay datos NASA verificados en esta sesión.'}finally{$('obsFetch').disabled=false}};
+$('obsCity').onchange=()=>{rows=[];$('obsMonths').textContent='—';$('obsAnnual').textContent='—';$('obsExport').disabled=true;$('obsStatus').textContent='Cambia la ciudad: consulta NASA nuevamente.';$('obsSource').textContent='Sin datos para el punto seleccionado.';plot()};
+$('obsExport').onclick=()=>{if(!rows.length)return;let csv='mes,lluvia_mm,fuente,punto\n'+rows.map(r=>`${r.mes},${r.lluvia_mm},NASA POWER PRECTOTCORR,${$('obsCity').value}`).join('\n');let url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='nasa_power_'+$('obsCity').value+'_2018_2025.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+})();
+  
+// Observaciones históricas documentadas; no interpolar entre partes ni extrapolar superficie inundada.
+(()=>{
+ const cases=[
+ {date:'21 diciembre 2015',count:954,evidence:'SINAE · parte diario',cities:[['Salto','455 desplazados'],['Paysandú','184 desplazados'],['Artigas / Bella Unión','315 desplazados (total departamental)']],note:'El parte del 21/12 reporta 954 desplazados en el litoral norte. Las cifras por localidad del texto corresponden a los cortes informados en ese comunicado; no sumar subtotales como si fueran una serie homogénea.',url:'https://www.gub.uy/presidencia/comunicacion/noticias/hay-954-personas-desplazadas-inundaciones-litoral-norte-del-rio-uruguay'},
+ {date:'22 diciembre 2015',count:1127,evidence:'SINAE · parte diario',cities:[['Salto','528 desplazados'],['Paysandú','277 desplazados'],['Artigas','296 desplazados'],['Bella Unión','26 desplazados']],note:'Corte puntual nacional del 22/12. No representa superficie inundada en hectáreas.',url:'https://www.gub.uy/presidencia/comunicacion/noticias/inundaciones-determinaron-evacuacion-1127-personas-todo-pais'},
+ {date:'2 enero 2016',count:23571,evidence:'SINAE · balance histórico',cities:[['Artigas, Salto y Paysandú','Entre las localidades más afectadas'],['Uruguay','23.571 personas desplazadas simultáneamente']],note:'Pico simultáneo documentado en el balance histórico de SINAE; no equivale al acumulado de 24.991 personas desplazadas durante todo el episodio.',url:'https://www.gub.uy/sistema-nacional-emergencias/comunicacion/publicaciones/nino-2015-2016'}
+ ];
+ const el=id=>document.getElementById(id);if(!el('historicalCase'))return;
+ function show(i){let c=cases[i];el('caseDate').textContent=c.date;el('caseCount').textContent=c.count.toLocaleString('es-UY');el('caseEvidence').textContent=c.evidence;el('caseBar').style.width=Math.max(4,c.count/23571*100)+'%';el('caseLocations').replaceChildren();c.cities.forEach(([name,value])=>{let row=document.createElement('div');row.className='case-city';let a=document.createElement('span'),b=document.createElement('span');a.textContent=name;b.textContent=value;row.append(a,b);el('caseLocations').append(row)});el('caseCaveat').textContent=c.note;el('caseSource').href=c.url;document.querySelectorAll('[data-case]').forEach(b=>b.classList.toggle('active',Number(b.dataset.case)===i));}
+ document.querySelectorAll('[data-case]').forEach(b=>b.addEventListener('click',()=>show(Number(b.dataset.case))));
+ el('caseNASA').onclick=()=>{let target=el('obsCity');if(target){target.value='salto';el('obsStatus').textContent='Selecciona «Consultar datos NASA 2018–2025» para descargar lluvia real. La precipitación no prueba por sí sola una inundación.';el('obsFetch').scrollIntoView({behavior:'smooth',block:'center'});}else{el('caseActionStatus').textContent='No se encontró el panel NASA.'}};
+ el('caseGIBS').onclick=()=>{let date=el('gibsDate');if(date)date.value='2015-12-22';let target=el('gibsDiscover');if(target){target.scrollIntoView({behavior:'smooth',block:'center'});el('caseActionStatus').textContent='Fecha GIBS: 22/12/2015. Consulta el catálogo y selecciona una capa disponible. No es una detección automática de agua.';}else el('caseActionStatus').textContent='No se encontró el panel NASA GIBS.'};
+ show(0);
+})();
+</script>
+<a href="/static/modelo_real.html" style="position:fixed;bottom:65px;right:18px;z-index:9999;background:#00d6df;color:#032330;padding:12px 17px;border-radius:12px;font:800 13px Arial;text-decoration:none;box-shadow:0 4px 24px #000b" target="_blank">
+   ◈ Laboratorio de datos reales 2026–2027 ↗
+  </a>
+<script src="/static/i18n.js?v=40"></script>
+</body>
+</html>

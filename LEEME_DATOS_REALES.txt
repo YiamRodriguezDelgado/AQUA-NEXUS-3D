@@ -1,0 +1,21 @@
+AQUA NEXUS v2.6 - laboratorio de datos reales
+
+1. Ejecutar INICIAR_AQUA_NEXUS.bat y abrir la aplicacion.
+2. Pulsar "Laboratorio de datos reales 2026-2027" en el mapa.
+3. Seleccionar Artigas, Salto o Paysandu y consultar NASA POWER.
+4. Importar CSV con observaciones reales de inundacion:
+   zona,mes,area_ha,fuente
+   artigas,2018-01,123.4,URL_O_REFERENCIA_VERIFICABLE
+   (Estos numeros son SOLO un ejemplo de formato, NO son observaciones reales.)
+5. El modelo necesita al menos 24 meses validos hasta 2023 y 6 meses
+   entre 2024 y 2025 para validar. Sin ellos NO genera pronosticos.
+6. Seleccionar ano 2026 o 2027 y escenario de lluvia futura.
+
+IMPORTANTE: la precipitacion NASA es real (punto de rejilla), pero no
+es un pronostico. Las proyecciones 2026/2027 son escenarios condicionales
+basados en lluvia climatologica hipotetica, no alertas ni mapas de riesgo.
+No se incluyen datos inventados de superficie inundada.
+
+Fuentes:
+https://power.larc.nasa.gov/docs/services/api/temporal/daily/
+https://www.gub.uy/ministerio-ambiente/politicas-y-gestion/informacion-disponible-herramientas-consulta-sobre-inundaciones-sequias

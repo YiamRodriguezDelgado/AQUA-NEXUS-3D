@@ -1,0 +1,4 @@
+AQUA NEXUS 3D v3.9 - Astronomicon
+Selector EN/ES de alto contraste, nombres geograficos originales, etiquetas de capas traducidas y mapa central mas ancho.
+Puerto: 8699. Ejecute INICIAR_AQUA_NEXUS.bat.
+Las areas inundadas siguen siendo simulaciones, no observaciones satelitales validadas.

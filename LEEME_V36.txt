@@ -1,0 +1,7 @@
+AQUA NEXUS 3D v3.6 - interfaz simplificada para concurso NASA
+
+Se eliminaron las capas esquematicas Rios principales y Departamentos (esquema) y sus casillas. Se conservan las capas de cuenca, inundaciones y ciudades, las consultas NASA y la simulacion.
+
+Ejecutar INICIAR_AQUA_NEXUS.bat y abrir la direccion que indique la consola (puerto inicial 8666). Cerrar versiones anteriores.
+
+AVISO: el mapa es artistico, las inundaciones y predicciones son escenarios demostrativos y no alertas oficiales.

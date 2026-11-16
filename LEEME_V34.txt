@@ -1,0 +1,9 @@
+AQUA NEXUS v3.4
+Laboratorio: /static/modelo_real.html
+1. Consultar NASA POWER (internet requerido).
+2. Importar CSV de superficie inundada observada por mes.
+3. Opcional: importar nivel y caudal diario con fecha,nivel_m,caudal_m3s,fuente.
+4. Entrenar y revisar MAE/RMSE en 2024-2025, y exportar auditoria.
+5. Proyectar 2026/2027 bajo escenarios hipoteticos de lluvia y caudal.
+IMPORTANTE: No se incluyen series oficiales de inundacion ni estaciones hidrometricas descargadas. No son alertas reales.
+Puerto inicial 8644; cerrar versiones previas.

@@ -1,0 +1,1 @@
+v2.7: El grafico dinamico ahora esta visible en la parte superior del panel derecho y no tapa el mapa. Al pulsar Reproducir, la serie temporal se actualiza en cada mes. La simulacion 2023-2025 es sintetica, no una prediccion real. El laboratorio 2026-2027 es un modulo separado y requiere observaciones reales para resultados verificables.

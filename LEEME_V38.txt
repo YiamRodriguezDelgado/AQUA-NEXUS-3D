@@ -1,0 +1,1 @@
+AQUA NEXUS 3D v3.8 - Equipo Astronomicon. Selector EN / ES en el encabezado. Ingles predeterminado, espanol disponible. Abrir puerto 8688. Los datos simulados no son predicciones verificadas.

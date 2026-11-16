@@ -1,0 +1,1 @@
+v2.5: pronosticos demostrativos 2026 y 2027 visibles automaticamente; tabla mensual por zona y descarga CSV. Los datos son sinteticos, NO predicciones de inundaciones reales. Cargar historico validado para modelar datos observados.

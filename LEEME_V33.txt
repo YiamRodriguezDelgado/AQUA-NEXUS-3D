@@ -1,0 +1,5 @@
+AQUA NEXUS v3.3
+Regresion con lluvia cuando CSV tiene suficientes filas, diagnostico de recorte y error de ajuste.
+SIN VALIDACION EXTERNA. 2026-2027 son escenarios ilustrativos, no pronosticos.
+CSV: zona,ano,mes,area_ha,lluvia_mm (opcional),nivel_m (opcional; reservado para futuro modelo).
+Cerrar servidores previos, ejecutar BAT y abrir puerto 8633.
